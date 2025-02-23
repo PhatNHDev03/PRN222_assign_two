@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FC462A-380D-4C60-890F-708B7637AB8A}|FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage.csproj|d:\\fpt_source\\sem 7\\prn222\\assignments\\funewsmanagementsystem.webrazorpage\\funewsmanagementsystem.webrazorpage\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FC462A-380D-4C60-890F-708B7637AB8A}|FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage.csproj|solutionrelative:funewsmanagementsystem.webrazorpage\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FC462A-380D-4C60-890F-708B7637AB8A}|FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage.csproj|d:\\fpt_source\\sem 7\\prn222\\assignments\\funewsmanagementsystem.webrazorpage\\funewsmanagementsystem.webrazorpage\\viewmodels\\newsarticleviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FC462A-380D-4C60-890F-708B7637AB8A}|FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage.csproj|solutionrelative:funewsmanagementsystem.webrazorpage\\viewmodels\\newsarticleviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11365265-1E91-4BAF-8D96-D984DB935289}|FUNewsManagementSystem.Services\\FUNewsManagementSystem.Services.csproj|d:\\fpt_source\\sem 7\\prn222\\assignments\\funewsmanagementsystem.webrazorpage\\funewsmanagementsystem.services\\tagservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11365265-1E91-4BAF-8D96-D984DB935289}|FUNewsManagementSystem.Services\\FUNewsManagementSystem.Services.csproj|solutionrelative:funewsmanagementsystem.services\\tagservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FC462A-380D-4C60-890F-708B7637AB8A}|FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage.csproj|d:\\fpt_source\\sem 7\\prn222\\assignments\\funewsmanagementsystem.webrazorpage\\funewsmanagementsystem.webrazorpage\\viewmodels\\systemaccountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FC462A-380D-4C60-890F-708B7637AB8A}|FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage.csproj|solutionrelative:funewsmanagementsystem.webrazorpage\\viewmodels\\systemaccountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 361,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,28 +46,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage\\Program.cs",
-              "RelativeDocumentMoniker": "FUNewsManagementSystem.WebRazorPage\\Program.cs",
-              "ToolTip": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage\\Program.cs",
-              "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAABAAAA",
+              "DocumentIndex": 1,
+              "Title": "SystemAccountViewModel.cs",
+              "DocumentMoniker": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage\\ViewModels\\SystemAccountViewModel.cs",
+              "RelativeDocumentMoniker": "FUNewsManagementSystem.WebRazorPage\\ViewModels\\SystemAccountViewModel.cs",
+              "ToolTip": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage\\ViewModels\\SystemAccountViewModel.cs",
+              "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\ViewModels\\SystemAccountViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T22:22:38.911Z",
+              "WhenOpened": "2025-02-23T22:35:45.498Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TagService.cs",
-              "DocumentMoniker": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.Services\\TagService.cs",
-              "RelativeDocumentMoniker": "FUNewsManagementSystem.Services\\TagService.cs",
-              "ToolTip": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.Services\\TagService.cs",
-              "RelativeToolTip": "FUNewsManagementSystem.Services\\TagService.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAIBBwBAAAAAoAAAA",
+              "DocumentIndex": 0,
+              "Title": "NewsArticleViewModel.cs",
+              "DocumentMoniker": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage\\ViewModels\\NewsArticleViewModel.cs",
+              "RelativeDocumentMoniker": "FUNewsManagementSystem.WebRazorPage\\ViewModels\\NewsArticleViewModel.cs",
+              "ToolTip": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage\\ViewModels\\NewsArticleViewModel.cs",
+              "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\ViewModels\\NewsArticleViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T22:19:54.137Z",
+              "WhenOpened": "2025-02-23T22:35:08.293Z",
               "EditorCaption": ""
             }
           ]
