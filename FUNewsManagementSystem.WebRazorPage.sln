@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FUNewsManagementSystem.WebRazorPage", "FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.WebRazorPage.csproj", "{A2FC462A-380D-4C60-890F-708B7637AB8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FUNewsManagementSystem.WebRazorPage", "FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.WebRazorPage.csproj", "{A2FC462A-380D-4C60-890F-708B7637AB8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FUNewsManagementSystem.DataAccess", "FUNewsManagementSystem.DataAccess\FUNewsManagementSystem.DataAccess.csproj", "{129AD51B-4988-4940-AE81-D7AC35D76D6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FUNewsManagementSystem.DataAccess", "FUNewsManagementSystem.DataAccess\FUNewsManagementSystem.DataAccess.csproj", "{129AD51B-4988-4940-AE81-D7AC35D76D6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FUNewsManagementSystem.BusinessObject", "FUNewsManagementSystem.BusinessObject\FUNewsManagementSystem.BusinessObject.csproj", "{825EDE2B-4346-4151-939E-BD75C4D26221}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FUNewsManagementSystem.BusinessObject", "FUNewsManagementSystem.BusinessObject\FUNewsManagementSystem.BusinessObject.csproj", "{825EDE2B-4346-4151-939E-BD75C4D26221}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FUNewsManagementSystem.Services", "FUNewsManagementSystem.Services\FUNewsManagementSystem.Services.csproj", "{11365265-1E91-4BAF-8D96-D984DB935289}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FUNewsManagementSystem.Services", "FUNewsManagementSystem.Services\FUNewsManagementSystem.Services.csproj", "{11365265-1E91-4BAF-8D96-D984DB935289}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

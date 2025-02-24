@@ -1,0 +1,106 @@
+﻿@page "{id:int?}"
+@model FUNewsManagementSystem.WebRazorPage.Pages.Report.IndexModel
+@using FUNewsManagementSystem.BusinessObject
+@{
+    ViewData["Title"] = "New Article Report";
+}
+<h2>New Article Report</h2>
+
+
+@if (Model.Notify == "Personal")
+{
+    <a class="btn btn-primary" href="~/Report/Index">View All</a>
+}
+
+
+
+
+
+<select id="accountSelect" onchange="redirectToPersonalDropdown()">
+    <option value="">-- Choose an account --</option>
+    @foreach (var account in Model.AllAccounts)
+    {
+        <option value="@account.AccountId"
+                selected="@(Model.SelectedId?.ToString() == account.AccountId.ToString() ? "selected" : null)">
+            @account.AccountEmail
+        </option>
+           <script>
+            console.log("Model.SelectedId:", "@Model.SelectedId");
+            console.log("account.AccountId:", "@account.AccountId");
+        </script>
+    }
+</select>
+
+<canvas id="myChart" width="400" height="200"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    let chartInstance = null;
+
+
+    function fetchAndRenderChart(url) {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                console.log("Received Data:", data);
+
+                const labels = data.map(item => item.label);
+                const values = data.map(item => item.value);
+
+                const ctx = document.getElementById('myChart').getContext('2d');
+
+                if (chartInstance) {
+                    chartInstance.destroy();
+                }
+
+                chartInstance = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Total new Articles',
+                            data: values,
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                suggestedMax: 10
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Lỗi tải dữ liệu biểu đồ:', error));
+    }
+
+ document.addEventListener("DOMContentLoaded", function () {
+    // Get ID from route path instead of query string
+    const pathParts = window.location.pathname.split('/');
+    const id = pathParts[pathParts.length - 1];
+    
+    // Check if the last part is actually a number
+    if (id && !isNaN(id)) {
+        fetchAndRenderChart(`/Report?handler=DataForPersonal&id=${id}`);
+    } else {
+        fetchAndRenderChart('@Model.UrlApi');
+    }
+});
+
+  function redirectToPersonalDropdown() {
+    let selectedId = document.getElementById("accountSelect").value;
+    // Convert the string to a number since you're expecting a short in C#
+    if (selectedId) {
+        window.location.href = `/Report/${selectedId}`;  // Route parameter approach
+        // Or if you want to keep using query parameters:
+        // window.location.href = `/Report?handler=ViewAll&id=${selectedId}`;
+    } else {
+        window.location.href = `/Report`;
+    }
+}
+</script>

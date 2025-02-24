@@ -80,6 +80,7 @@ D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNew
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.WebRazorPage\obj\Debug\net8.0\FUNewsManagementSystem.WebRazorPage.MvcApplicationPartsAssemblyInfo.cache
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.WebRazorPage\obj\Debug\net8.0\FUNewsManagementSystem.WebRazorPage.RazorAssemblyInfo.cache
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.WebRazorPage\obj\Debug\net8.0\FUNewsManagementSystem.WebRazorPage.RazorAssemblyInfo.cs
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.WebRazorPage\obj\Debug\net8.0\FUNewsManagementSystem.WebRazorPage.sourcelink.json
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.WebRazorPage\obj\Debug\net8.0\staticwebassets.build.json
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.WebRazorPage\obj\Debug\net8.0\staticwebassets.development.json
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.WebRazorPage\obj\Debug\net8.0\staticwebassets\msbuild.FUNewsManagementSystem.WebRazorPage.Microsoft.AspNetCore.StaticWebAssets.props

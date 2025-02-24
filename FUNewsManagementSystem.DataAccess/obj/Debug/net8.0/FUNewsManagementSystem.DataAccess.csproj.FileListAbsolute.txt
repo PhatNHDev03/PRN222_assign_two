@@ -9,6 +9,7 @@ D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNew
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.AssemblyInfoInputs.cache
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.AssemblyInfo.cs
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.csproj.CoreCompileInputs.cache
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.sourcelink.json
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsMa.4105EF26.Up2Date
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.dll
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\refint\FUNewsManagementSystem.DataAccess.dll

@@ -7,6 +7,7 @@ D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNew
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.AssemblyInfoInputs.cache
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.AssemblyInfo.cs
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.csproj.CoreCompileInputs.cache
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.sourcelink.json
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.dll
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\refint\FUNewsManagementSystem.BusinessObject.dll
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.pdb
