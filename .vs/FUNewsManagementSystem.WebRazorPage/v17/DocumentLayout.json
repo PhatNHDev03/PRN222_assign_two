@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 366,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
@@ -84,10 +84,6 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
@@ -102,7 +98,7 @@
               "RelativeDocumentMoniker": "FUNewsManagementSystem.DataAccess\\SystemAccountRepository.cs",
               "ToolTip": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.DataAccess\\SystemAccountRepository.cs",
               "RelativeToolTip": "FUNewsManagementSystem.DataAccess\\SystemAccountRepository.cs",
-              "ViewState": "AQIAAEwAAAAAAAAAAIBBwE4AAAA+AAAA",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAAFkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-26T22:29:03.596Z",
               "EditorCaption": ""
