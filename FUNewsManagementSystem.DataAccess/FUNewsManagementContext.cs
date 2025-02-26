@@ -30,7 +30,6 @@ public partial class FUNewsManagementContext : DbContext
 
     public virtual DbSet<Tag> Tags { get; set; }
 
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
@@ -93,11 +92,11 @@ public partial class FUNewsManagementContext : DbContext
                     "NewsTag",
                     r => r.HasOne<Tag>().WithMany()
                         .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_NewsTag_Tag"),
                     l => l.HasOne<NewsArticle>().WithMany()
                         .HasForeignKey("NewsArticleId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_NewsTag_NewsArticle"),
                     j =>
                     {
@@ -122,6 +121,9 @@ public partial class FUNewsManagementContext : DbContext
             entity.Property(e => e.AccountEmail).HasMaxLength(70);
             entity.Property(e => e.AccountName).HasMaxLength(100);
             entity.Property(e => e.AccountPassword).HasMaxLength(70);
+            entity.Property(e => e.Status)
+                .IsRequired()
+                .HasDefaultValueSql("((1))");
         });
 
         modelBuilder.Entity<Tag>(entity =>

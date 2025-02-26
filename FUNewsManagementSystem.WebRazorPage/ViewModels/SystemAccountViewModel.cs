@@ -10,5 +10,7 @@
         public string NewAccountEmail { get; set; }
 
         public int? AccountRole { get; set; }
+        public bool? Status { get; set; }
     }
+
 }

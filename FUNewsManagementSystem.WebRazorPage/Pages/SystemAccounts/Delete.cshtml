@@ -1,0 +1,21 @@
+﻿@page
+@{
+    Layout = null;
+}
+@model FUNewsManagementSystem.WebRazorPage.Pages.SystemAccounts.DeleteModel
+<h2>Delete Account</h2>
+
+@if (Model.MyProperty != null)
+{
+    <p>Are you sure you want to delete "<strong>@Model.MyProperty.AccountName</strong>"?</p>
+
+    <form method="post" asp-page="Delete" asp-route-id="@Model.MyProperty.AccountId">
+        <input type="hidden" asp-for="MyProperty.AccountId" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+}
+else
+{
+    <div class="alert alert-danger">Account not found!</div>
+}
