@@ -1,0 +1,21 @@
+﻿@page
+@model FUNewsManagementSystem.WebRazorPage.Pages.Tag.EditModel
+@{
+    ViewData["Title"] = "Edit Tag";
+}
+
+<h2>Edit Tag</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="EditTag.TagId" />
+    <div class="form-group">
+        <label>Tag Name:</label>
+        <input asp-for="EditTag.TagName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Note:</label>
+        <textarea asp-for="EditTag.Note" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>
