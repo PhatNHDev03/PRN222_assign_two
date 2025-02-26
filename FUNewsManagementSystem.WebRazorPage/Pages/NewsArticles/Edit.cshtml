@@ -1,0 +1,71 @@
+﻿@page
+@model FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles.EditModel
+@{
+    Layout = null;
+}
+
+
+
+<form method="post" id="editForm" asp-page="Edit">
+    <input type="hidden" asp-for="NewsArticle.NewsArticleID" />
+
+    <div class="mb-3">
+        <label asp-for="NewsArticle.NewsTitle" class="form-label">Title</label>
+        <input asp-for="NewsArticle.NewsTitle" class="form-control" required />
+        <span asp-validation-for="NewsArticle.NewsTitle" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="NewsArticle.Headline" class="form-label">Headline</label>
+        <input asp-for="NewsArticle.Headline" class="form-control" required />
+        <span asp-validation-for="NewsArticle.Headline" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="NewsArticle.NewsContent" class="form-label">Content</label>
+        <textarea asp-for="NewsArticle.NewsContent" class="form-control"></textarea>
+        <span asp-validation-for="NewsArticle.NewsContent" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="NewsArticle.NewsSource" class="form-label">News Source</label>
+        <input asp-for="NewsArticle.NewsSource" class="form-control" />
+        <span asp-validation-for="NewsArticle.NewsSource" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="NewsArticle.CategoryID" class="form-label">Category</label>
+        <select asp-for="NewsArticle.CategoryID" class="form-control">
+            @foreach (var category in Model.Categories)
+            {
+                <option value="@category.CategoryId">@category.CategoryName</option>
+            }
+        </select>
+        <span asp-validation-for="NewsArticle.CategoryID" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Tags</label>
+        <div>
+            @foreach (var tag in Model.Tags)
+            {
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input"
+                           name="NewsArticle.SelectedTags"
+                           value="@tag.TagId"
+                           id="tag_@tag.TagId"
+                           checked="@(Model.NewsArticle.SelectedTags.Contains(tag.TagId) ? "checked" : null)" />
+                    <label class="form-check-label" for="tag_@tag.TagId">@tag.TagName</label>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="NewsArticle.NewsStatus" class="form-label">Status</label>
+        <input asp-for="NewsArticle.NewsStatus" type="checkbox" class="form-check-input" />
+    </div>
+
+    <button type="submit" class="btn btn-success"> Save</button>
+
+</form>

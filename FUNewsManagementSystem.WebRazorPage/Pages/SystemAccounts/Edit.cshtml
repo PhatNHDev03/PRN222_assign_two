@@ -1,0 +1,56 @@
+﻿@page
+@model FUNewsManagementSystem.WebRazorPage.Pages.SystemAccounts.EditModel
+@{
+    Layout = null;
+}
+<form method="post" asp-page="Edit">
+    <input type="hidden" asp-for="SystemAccount.AccountId" />
+
+    <div class="mb-3">
+        <label asp-for="SystemAccount.AccountName" class="form-label">Account Name</label>
+        <input asp-for="SystemAccount.AccountName" class="form-control" required />
+        <span asp-validation-for="SystemAccount.AccountName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="SystemAccount.AccountEmail" class="form-label">Current Email</label>
+        <input asp-for="SystemAccount.AccountEmail" class="form-control" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="SystemAccount.NewAccountEmail" class="form-label">New Email</label>
+        <input asp-for="SystemAccount.NewAccountEmail" class="form-control" required />
+        <span asp-validation-for="SystemAccount.NewAccountEmail" class="text-danger"></span>
+    </div>
+
+ <div class="mb-3">
+    <label asp-for="SystemAccount.AccountRole" class="form-label">Role</label>
+    <select asp-for="SystemAccount.AccountRole" class="form-control">
+        <option value="1" selected="@(Model.SystemAccount.AccountRole == 1 ? "selected" : null)">Staff</option>
+        <option value="2" selected="@(Model.SystemAccount.AccountRole == 2 ? "selected" : null)">Lecturer</option>
+    </select>
+    <span asp-validation-for="SystemAccount.AccountRole" class="text-danger"></span>
+</div>
+
+
+    <div class="mb-3">
+        <label asp-for="SystemAccount.Status" class="form-label">Role</label>
+        <select asp-for="SystemAccount.Status" class="form-control">
+            <option value="True">Active</option>
+            <option value="False">InActive</option>
+        </select>
+        <span asp-validation-for="SystemAccount.Status" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+

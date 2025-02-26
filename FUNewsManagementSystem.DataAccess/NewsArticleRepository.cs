@@ -127,5 +127,7 @@ namespace FUNewsManagementSystem.DataAccess
            return  _context.NewsArticles.Where(x => x.CreatedById == userId).
             Include(x => x.Tags).Include(c => c.Category).ToList();
         }
+        public DateTime FirstCreateDate ()=> (DateTime) _context.NewsArticles
+            .OrderBy(x => x.CreatedDate).FirstOrDefault().CreatedDate;   
     }
 }

@@ -4,39 +4,67 @@
 @{
     ViewData["Title"] = "New Article Report";
 }
-<h2>New Article Report</h2>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
+<div class="container mt-4">
+    <h2 class="mb-4 text-primary">📊 New Article Report</h2>
 
-@if (Model.Notify == "Personal")
-{
-    <a class="btn btn-primary" href="~/Report/Index">View All</a>
-}
-
-
-
-
-
-<select id="accountSelect" onchange="redirectToPersonalDropdown()">
-    <option value="">-- Choose an account --</option>
-    @foreach (var account in Model.AllAccounts)
+    @if (Model.Notify == "Personal")
     {
-        <option value="@account.AccountId"
-                selected="@(Model.SelectedId?.ToString() == account.AccountId.ToString() ? "selected" : null)">
-            @account.AccountEmail
-        </option>
-           <script>
-            console.log("Model.SelectedId:", "@Model.SelectedId");
-            console.log("account.AccountId:", "@account.AccountId");
-        </script>
+        <a class="btn btn-outline-primary mb-3" href="~/Report/Index">View All</a>
     }
-</select>
 
-<canvas id="myChart" width="400" height="200"></canvas>
+    <div class="row">
+        <!-- Bộ lọc thời gian -->
+        <div class="col-md-6">
+            <div class="card shadow-sm p-3">
+                <h5 class="mb-3 text-secondary">📅 Select Date Range</h5>
+                <label class="form-label">Start Date:</label>
+                <input type="date" id="startDate" class="form-control mb-2"
+                       value="@(Model.firstCreateDate?.ToString("yyyy-MM-dd") ?? "")"
+                       min="@Model.firstCreateDate?.ToString("yyyy-MM-dd")"
+                       max="@DateTime.Now.ToString("yyyy-MM-dd")" />
+
+                <label class="form-label">End Date:</label>
+                <input type="date" id="endDate" class="form-control mb-3"
+                       value="@DateTime.Now.ToString("yyyy-MM-dd")"
+                       min="@Model.firstCreateDate?.ToString("yyyy-MM-dd")"
+                       max="@DateTime.Now.ToString("yyyy-MM-dd")" />
+
+                <button class="btn btn-primary w-100" onclick="updateChartWithDates()">🔄 Update Chart</button>
+            </div>
+        </div>
+
+        <!-- Danh sách tài khoản -->
+        <div class="col-md-6">
+            <div class="card shadow-sm p-3">
+                <h5 class="mb-3 text-secondary">👤 Select Account</h5>
+                <select id="accountSelect" class="form-select" onchange="redirectToPersonalDropdown()">
+                    <option value="">-- Choose an account --</option>
+                    @foreach (var account in Model.AllAccounts)
+                    {
+                        <option value="@account.AccountId"
+                                selected="@(Model.SelectedId?.ToString() == account.AccountId.ToString() ? "selected" : null)">
+                            @account.AccountEmail
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Biểu đồ -->
+    <div class="card shadow-sm mt-4">
+        <div class="card-body">
+            <h5 class="card-title text-secondary">📈 Article Statistics</h5>
+            <canvas id="myChart" width="400" height="200"></canvas>
+        </div>
+    </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <script>
     let chartInstance = null;
-
 
     function fetchAndRenderChart(url) {
         fetch(url)
@@ -79,28 +107,42 @@
             .catch(error => console.error('Lỗi tải dữ liệu biểu đồ:', error));
     }
 
- document.addEventListener("DOMContentLoaded", function () {
-    // Get ID from route path instead of query string
-    const pathParts = window.location.pathname.split('/');
-    const id = pathParts[pathParts.length - 1];
-    
-    // Check if the last part is actually a number
-    if (id && !isNaN(id)) {
-        fetchAndRenderChart(`/Report?handler=DataForPersonal&id=${id}`);
-    } else {
-        fetchAndRenderChart('@Model.UrlApi');
-    }
-});
+    document.addEventListener("DOMContentLoaded", function () {
+        const pathParts = window.location.pathname.split('/');
+        const id = pathParts[pathParts.length - 1];
 
-  function redirectToPersonalDropdown() {
-    let selectedId = document.getElementById("accountSelect").value;
-    // Convert the string to a number since you're expecting a short in C#
-    if (selectedId) {
-        window.location.href = `/Report/${selectedId}`;  // Route parameter approach
-        // Or if you want to keep using query parameters:
-        // window.location.href = `/Report?handler=ViewAll&id=${selectedId}`;
-    } else {
-        window.location.href = `/Report`;
+        if (id && !isNaN(id)) {
+            fetchAndRenderChart(`/Report?handler=DataForPersonal&id=${id}`);
+        } else {
+            fetchAndRenderChart('@Model.UrlApi');
+        }
+    });
+
+    function redirectToPersonalDropdown() {
+        let selectedId = document.getElementById("accountSelect").value;
+        if (selectedId) {
+            window.location.href = `/Report/${selectedId}`;
+        } else {
+            window.location.href = `/Report`;
+        }
     }
-}
+
+    function updateChartWithDates() {
+        let selectedId = document.getElementById("accountSelect").value;
+        let startDate = document.getElementById("startDate").value;
+        let endDate = document.getElementById("endDate").value;
+
+        if (!startDate || !endDate) {
+            alert("Please select both start and end dates.");
+            return;
+        }
+
+        let url = `/Report?handler=ChartByEachAuthorWithDate&startDate=${startDate}&endDate=${endDate}`;
+        if (selectedId) {
+            url = `/Report?handler=DataForPersonalWithDate&id=${selectedId}&startDate=${startDate}&endDate=${endDate}`;
+        }
+
+        console.log("Fetching URL:", url);
+        fetchAndRenderChart(url);
+    }
 </script>
