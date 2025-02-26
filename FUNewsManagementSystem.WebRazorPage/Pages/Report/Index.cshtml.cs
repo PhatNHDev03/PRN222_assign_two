@@ -5,13 +5,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using FUNewsManagementSystem.BusinessObject;
 namespace FUNewsManagementSystem.WebRazorPage.Pages.Report
 {
+    [BindProperties]
     public class IndexModel : PageModel
     {
         private readonly ISystemAccountService _systemAccountService;
-
-        public IndexModel(ISystemAccountService systemAccountService)
+        private readonly INewsArticleService _newsArticleService;
+        public DateTime? firstCreateDate { get; set; }
+        public IndexModel(ISystemAccountService systemAccountService, INewsArticleService newsArticleService)
         {
             _systemAccountService = systemAccountService;
+            _newsArticleService = newsArticleService;
         }
 
         public List<SystemAccount> AllAccounts { get; set; }
@@ -23,7 +26,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Report
         {
             AllAccounts = _systemAccountService.findAllSystem();
             SelectedId = id;
-
+            firstCreateDate = _newsArticleService.FirstCreateDate();
             if (id == null)
             {
                 Notify = "All";
@@ -43,6 +46,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Report
         public JsonResult OnGetChartByEachAuthor()
         {
             var data = new List<object>();
+
             var listCountArticleByEachAuthor = _systemAccountService.findAllWithArticles();
 
             foreach (var item in listCountArticleByEachAuthor)
@@ -50,6 +54,31 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Report
                 data.Add(new { label = item.AccountEmail, value = item.NewsArticles.Count });
             }
 
+            return new JsonResult(data);
+        }
+        public JsonResult OnGetChartByEachAuthorWithDate(DateTime? startDate, DateTime? endDate)
+        {
+
+
+            // Kiểm tra nếu startDate hoặc endDate null thì trả về lỗi
+            if (startDate == null || endDate == null)
+            {
+                return new JsonResult(new { error = "Missing start or end date" });
+            }
+
+            // Khởi tạo danh sách kết quả
+            var data = new List<object>();
+
+            // Giả sử lấy danh sách bài viết từ hệ thống
+            var listCountArticleByEachAuthor = _systemAccountService.FindAllWithArticlesWithDate((DateTime)startDate,(DateTime) endDate);
+
+            // Duyệt qua từng tác giả và đếm số bài viết trong khoảng thời gian
+            foreach (var item in listCountArticleByEachAuthor)
+            {
+                data.Add(new { label = item.AccountEmail, value = item.NewsArticles.Count });
+            }
+
+            // Trả về dữ liệu dưới dạng JSON để JavaScript xử lý
             return new JsonResult(data);
         }
 
@@ -68,9 +97,24 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Report
             }
             return new JsonResult(data);
         }
-
+        public JsonResult OnGetDataForPersonalWithDate(int? id, DateTime? startDate, DateTime? endDate)
+        {
+            if (id == null)
+            {
+                return new JsonResult(new { error = "ID is null" });
+            }
+            var idShort = short.Parse(id.ToString());
+            var data = new List<object>();
+            var listCountArticleByEachAuthor = _systemAccountService.FindAllWithArticlesByIdWithDate(idShort,(DateTime)startDate,(DateTime)endDate);
+            if (listCountArticleByEachAuthor != null)
+            {
+                data.Add(new { label = listCountArticleByEachAuthor.AccountEmail, value = listCountArticleByEachAuthor.NewsArticles.Count });
+            }
+            return new JsonResult(data);
+        }
         public IActionResult OnGetViewAll(short? id)
         {
+            firstCreateDate = _newsArticleService.FirstCreateDate();
             if (id == null)
             {
                 return RedirectToPage("Index"); // Không có id, về trang mặc định
