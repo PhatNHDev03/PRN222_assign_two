@@ -49,7 +49,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Report
 
             var listCountArticleByEachAuthor = _systemAccountService.findAllWithArticles();
 
-            foreach (var item in listCountArticleByEachAuthor)
+            foreach (var item in listCountArticleByEachAuthor.OrderByDescending(x=>(x.NewsArticles.Count)))
             {
                 data.Add(new { label = item.AccountEmail, value = item.NewsArticles.Count });
             }
@@ -71,9 +71,9 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Report
 
             // Giả sử lấy danh sách bài viết từ hệ thống
             var listCountArticleByEachAuthor = _systemAccountService.FindAllWithArticlesWithDate((DateTime)startDate,(DateTime) endDate);
-
+      
             // Duyệt qua từng tác giả và đếm số bài viết trong khoảng thời gian
-            foreach (var item in listCountArticleByEachAuthor)
+            foreach (var item in listCountArticleByEachAuthor.OrderByDescending(x => (x.NewsArticles.Count)))
             {
                 data.Add(new { label = item.AccountEmail, value = item.NewsArticles.Count });
             }

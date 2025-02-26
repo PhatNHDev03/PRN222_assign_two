@@ -82,9 +82,11 @@ namespace FUNewsManagementSystem.DataAccess
         public List<SystemAccount> FindAllWithArticles()
             => _context.SystemAccounts.Include(x => x.NewsArticles).OrderByDescending(o => o.AccountId).ToList();
 
-        public List<SystemAccount> FindAllWithArticlesWithDate(DateTime startDaTe, DateTime endDate)
-    => _context.SystemAccounts.Include(x => x.NewsArticles).OrderByDescending(o => o.AccountId).Include(x=>x.NewsArticles)
-            .Where(d=>d.NewsArticles.Any(n=> n.CreatedDate>= startDaTe && n.CreatedDate<=endDate)).ToList();
+        public List<SystemAccount> FindAllWithArticlesWithDate(DateTime startDate, DateTime endDate) { 
+            var check = _context.SystemAccounts.Include(x => x.NewsArticles).OrderByDescending(o => o.AccountId).Include(x => x.NewsArticles
+            .Where(n => n.CreatedDate >= startDate && n.CreatedDate <= endDate)).ToList();
+            return check;
+        }
 
         public SystemAccount FindAllWithArticlesById(short id)
             => _context.SystemAccounts.Include(x => x.NewsArticles).FirstOrDefault(x => x.AccountId == id);

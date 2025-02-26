@@ -22,11 +22,13 @@
                 <label class="form-label">Start Date:</label>
                 <input type="date" id="startDate" class="form-control mb-2"
                        value="@(Model.firstCreateDate?.ToString("yyyy-MM-dd") ?? "")"
-                       min="@Model.firstCreateDate?.ToString("yyyy-MM-dd")" />
+                       min="@Model.firstCreateDate?.ToString("yyyy-MM-dd")"
+                       max="@DateTime.Now.ToString("yyyy-MM-dd")" />
 
                 <label class="form-label">End Date:</label>
                 <input type="date" id="endDate" class="form-control mb-3"
                        value="@DateTime.Now.ToString("yyyy-MM-dd")"
+                       min="@Model.firstCreateDate?.ToString("yyyy-MM-dd")"
                        max="@DateTime.Now.ToString("yyyy-MM-dd")" />
 
                 <button class="btn btn-primary w-100" onclick="updateChartWithDates()">🔄 Update Chart</button>

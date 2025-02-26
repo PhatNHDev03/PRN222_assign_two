@@ -128,6 +128,6 @@ namespace FUNewsManagementSystem.DataAccess
             Include(x => x.Tags).Include(c => c.Category).ToList();
         }
         public DateTime FirstCreateDate ()=> (DateTime) _context.NewsArticles
-            .OrderByDescending(x => x.CreatedDate).FirstOrDefault().CreatedDate;   
+            .OrderBy(x => x.CreatedDate).FirstOrDefault().CreatedDate;   
     }
 }
