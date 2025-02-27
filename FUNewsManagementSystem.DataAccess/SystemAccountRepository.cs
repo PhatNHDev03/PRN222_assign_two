@@ -1,5 +1,7 @@
 ﻿using FUNewsManagementSystem.BusinessObject;
+using FUNewsManagementSystem.BusinessObject.Pagination;
 using FUNewsManagementSystem.DataAccess.IRepository;
+
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -82,7 +84,8 @@ namespace FUNewsManagementSystem.DataAccess
         public List<SystemAccount> FindAllWithArticles()
             => _context.SystemAccounts.Include(x => x.NewsArticles).OrderByDescending(o => o.AccountId).ToList();
 
-        public List<SystemAccount> FindAllWithArticlesWithDate(DateTime startDate, DateTime endDate) { 
+        public List<SystemAccount> FindAllWithArticlesWithDate(DateTime startDate, DateTime endDate)
+        {
             var check = _context.SystemAccounts.Include(x => x.NewsArticles).OrderByDescending(o => o.AccountId).Include(x => x.NewsArticles
             .Where(n => n.CreatedDate >= startDate && n.CreatedDate <= endDate)).ToList();
             return check;
@@ -90,11 +93,23 @@ namespace FUNewsManagementSystem.DataAccess
 
         public SystemAccount FindAllWithArticlesById(short id)
             => _context.SystemAccounts.Include(x => x.NewsArticles).FirstOrDefault(x => x.AccountId == id);
-        public SystemAccount FindAllWithArticlesByIdWithDate(short id,DateTime startDate,DateTime endDate)
+        public SystemAccount FindAllWithArticlesByIdWithDate(short id, DateTime startDate, DateTime endDate)
            => _context.SystemAccounts
-    .Include(x => x.NewsArticles.Where(n => n.CreatedDate >= startDate && n.CreatedDate <= endDate))
-    .FirstOrDefault(x => x.AccountId == id);
-
+                .Include(x => x.NewsArticles.Where(n => n.CreatedDate >= startDate && n.CreatedDate <= endDate))
+                .FirstOrDefault(x => x.AccountId == id);
+        public (List<SystemAccount>, int totalItems) findALlWithPagination(int pg, int pageSize)
+        {
+            var list = _context.SystemAccounts.ToList();
+        
+            if (pg == 1) { 
+                pg=1;
+            }
+            int resCount = list.Count();
+            var pager = new Pager(resCount, pg, pageSize);
+            int recSkip = (pg-1)*pageSize;
+            var data = list.Skip(recSkip).Take(pager.Pagesize).ToList();
+            return (data,resCount);
+        }
     }
 
 }
