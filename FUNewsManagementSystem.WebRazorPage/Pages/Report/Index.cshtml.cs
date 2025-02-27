@@ -60,25 +60,20 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Report
         {
 
 
-            // Kiểm tra nếu startDate hoặc endDate null thì trả về lỗi
             if (startDate == null || endDate == null)
             {
                 return new JsonResult(new { error = "Missing start or end date" });
             }
 
-            // Khởi tạo danh sách kết quả
             var data = new List<object>();
 
-            // Giả sử lấy danh sách bài viết từ hệ thống
             var listCountArticleByEachAuthor = _systemAccountService.FindAllWithArticlesWithDate((DateTime)startDate,(DateTime) endDate);
       
-            // Duyệt qua từng tác giả và đếm số bài viết trong khoảng thời gian
             foreach (var item in listCountArticleByEachAuthor.OrderByDescending(x => (x.NewsArticles.Count)))
             {
                 data.Add(new { label = item.AccountEmail, value = item.NewsArticles.Count });
             }
 
-            // Trả về dữ liệu dưới dạng JSON để JavaScript xử lý
             return new JsonResult(data);
         }
 

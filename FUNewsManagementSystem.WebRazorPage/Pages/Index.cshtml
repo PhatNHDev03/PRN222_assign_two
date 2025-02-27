@@ -1,7 +1,5 @@
 ﻿@page
-@model FUNewsManagementSystem.WebRazorPage.Pages.Home.IndexModel
-@using Microsoft.AspNetCore.Http;
-
+@model IndexModel
 @{
     ViewData["Title"] = "Home Page";
     var role = HttpContext.Session.GetString("Role");
@@ -57,6 +55,19 @@ else
     <p class="alert alert-warning mt-4">There are no articles to display.</p>
 }
 
+<div class="text-center">
+    <h1 class="display-4">Welcome to the Home Page</h1>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>Welcome, @User.Identity.Name!</p>
+        <a href="/SystemAccounts/Logout" class="btn btn-danger">Logout</a> 
+    }
+    else
+    {
+        <a href="/SystemAccounts/Login" class="btn btn-primary">Login</a>
+    }
+</div>
 <hr>
 <h3>List Articles</h3>
 
