@@ -29,5 +29,6 @@ namespace FUNewsManagementSystem.Services.IService
         List<SystemAccount> findAllWithArticles();
         SystemAccount findAllWithArticlesById(short id);
         SystemAccount FindAllWithArticlesByIdWithDate(short id, DateTime startDate, DateTime endDate);
+        (List<SystemAccount>, int totalItems) findALlWithPagination(int pg, int pageSize);
     }
 }

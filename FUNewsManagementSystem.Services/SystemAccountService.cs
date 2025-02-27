@@ -106,5 +106,10 @@ namespace FUNewsManagementSystem.Services
         {
             return _systemAccountRepository.FindAllWithArticlesByIdWithDate(id, startDate, endDate);
         }
+
+        public (List<SystemAccount>, int totalItems) findALlWithPagination(int pg, int pageSize)
+        {
+            return _systemAccountRepository.findALlWithPagination(pg,  pageSize);
+        }
     }
 }

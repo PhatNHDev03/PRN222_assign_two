@@ -1,7 +1,14 @@
 ﻿@page
 @model FUNewsManagementSystem.WebRazorPage.Pages.SystemAccounts.IndexModel
+
 @{
     ViewData["Title"] = "System Account List";
+
+    int pageNo = 0;
+    if (Model.Pager != null)
+    {
+        pageNo = Model.Pager.CurrentPage;
+    }
 }
 
 <h2>System Account List</h2>
@@ -18,7 +25,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.list)
+        @foreach (var item in Model.List)
         {
             <tr>
                 <td>@item.AccountId</td>
@@ -34,6 +41,40 @@
         }
     </tbody>
 </table>
+<!-- Pagination -->
+<div class="container">
+    @if (Model.Pager.TotalPages > 0)
+    {
+     
+        <ul class="pagination justify-content-end">
+            @if (Model.Pager.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-page="/SystemAccounts/Index" asp-route-pg="@(Model.Pager.StartPage)">First</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" asp-page="/SystemAccounts/Index" asp-route-pg="@(Model.Pager.CurrentPage-1)">Previous</a>
+                </li>
+
+            }
+            @for (var pge = Model.Pager.StartPage; pge <= Model.Pager.EndPage;pge++)
+            {
+                <li class="page-item  @(pge == Model.Pager.CurrentPage? "active": "")">
+                    <a class="page-link" asp-page="/SystemAccounts/Index" asp-route-pg="@pge" >@pge</a>
+                </li>
+            }
+            @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-page="/SystemAccounts/Index" asp-route-pg="@(Model.Pager.CurrentPage+1)">Next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" asp-page="/SystemAccounts/Index" asp-route-pg="@(Model.Pager.TotalPages)">Last</a>
+                </li>
+            }   
+        </ul>    
+    }
+</div>
 
 <!-- Modal -->
 <div id="modal" class="modal">
