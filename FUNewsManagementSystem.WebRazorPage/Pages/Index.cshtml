@@ -1,10 +1,91 @@
 ﻿@page
-@model IndexModel
+@model FUNewsManagementSystem.WebRazorPage.Pages.Home.IndexModel
+@using Microsoft.AspNetCore.Http;
+
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home Page";
+    var role = HttpContext.Session.GetString("Role");
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-left">
+    <h1 class="display-4">News Today</h1>
+    <div class="mt-4">
+        @if (role == "Staff")
+        {
+            <a asp-page="/NewsArticle/Index" class="btn btn-primary">News management</a>
+            <a asp-page="/Category/Index" class="btn btn-secondary">Category management</a>
+            <a asp-page="/Tag/Index" class="btn btn-success">Tag management</a>
+            <a asp-page="/NewsArticle/MyNewArticle" asp-route-id="@HttpContext.Session.GetString("UserId")" class="btn btn-success">My News</a>
+        }
+        @if (role == "Admin")
+        {
+            <a asp-page="/NewsArticle/Report" class="btn btn-danger">NewsArticle report</a>
+            <a asp-page="/SystemAccount/Index" class="btn btn-danger">Account Management</a>
+        }
+    </div>
 </div>
+<hr>
+
+<h3>Highlight Article</h3>
+
+@if (Model.RandomArticle != null)
+{
+    <div class="card mt-4 shadow-sm bg-dark text-light border border-secondary rounded-5 p-10">
+        <div class="card-body">
+            <h2 class="card-title fw-bold text-warning">@Model.RandomArticle.NewsTitle</h2>
+            <h4 class="card-subtitle text-muted">@Model.RandomArticle.Headline</h4>
+            <h6>
+                <span class="text-light">Tags:</span>
+                @{
+                    var tags = Model.RandomArticle.Tags.Select(t => t.TagName).ToList();
+                }
+                @for (int i = 0; i < tags.Count; i++)
+                {
+                    <span class="text-danger">@tags[i]</span>
+                    <span class="text-danger">@(i < tags.Count - 1 ? "," : ".")</span>
+                }
+            </h6>
+            <p class="card-text mt-3">@Model.RandomArticle.NewsContent</p>
+            <small class="text-secondary">🕒 Ngày tạo: @Model.RandomArticle.CreatedDate?.ToString("dd/MM/yyyy")</small>
+        </div>
+    </div>
+}
+else
+{
+    <p class="alert alert-warning mt-4">There are no articles to display.</p>
+}
+
+<hr>
+<h3>List Articles</h3>
+
+@if (Model.Articles != null && Model.Articles.Any())
+{
+    @foreach (var article in Model.Articles)
+    {
+        <div class="card mt-4 shadow-sm">
+            <div class="card-body">
+                <div class="p-3 bg-light text-light rounded">
+                    <h2 class="card-title fw-bold text-dark">@article.NewsTitle</h2>
+                    <h4 class="card-subtitle text-muted">@article.Headline</h4>
+                </div>
+                <h6 style="color: red;">
+                    Tags:
+                    @{
+                        var tags = article.Tags.Select(t => t.TagName).ToList();
+                    }
+                    @for (int i = 0; i < tags.Count; i++)
+                    {
+                        <span style="color: red;">@tags[i]</span>
+                        <span style="color: red;">@(i < tags.Count - 1 ? "," : "")</span>
+                    }
+                </h6>
+                <p class="card-text mt-3">@article.NewsContent</p>
+                <small class="text-secondary">🕒 Ngày tạo: @article.CreatedDate?.ToString("dd/MM/yyyy")</small>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <p class="alert alert-info">There are no articles to display.</p>
+}
