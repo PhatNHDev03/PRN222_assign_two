@@ -1,52 +1,58 @@
 ﻿@page
+@using FUNewsManagementSystem.WebRazorPage.Pages.Home
 @model IndexModel
 @{
     ViewData["Title"] = "Home Page";
     var role = HttpContext.Session.GetString("Role");
 }
 
-<div class="text-left">
-    <h1 class="display-4">News Today</h1>
-    <div class="mt-4">
-        @if (role == "Staff")
+<div class="container">
+    <h1 class="display-4 text-center my-4">News Today</h1>
+    <div class="d-flex justify-content-center gap-2">
+        @if (User.IsInRole("Staff"))
         {
-            <a asp-page="/NewsArticle/Index" class="btn btn-primary">News management</a>
-            <a asp-page="/Category/Index" class="btn btn-secondary">Category management</a>
-            <a asp-page="/Tag/Index" class="btn btn-success">Tag management</a>
-            <a asp-page="/NewsArticle/MyNewArticle" asp-route-id="@HttpContext.Session.GetString("UserId")" class="btn btn-success">My News</a>
+            <a asp-page="/NewsArticle/Index" class="btn btn-primary">News Management</a>
+            <a asp-page="/Category/Index" class="btn btn-secondary">Category Management</a>
+            <a asp-page="/Tags/Index" class="btn btn-success">Tag Management</a>
+            <a asp-page="/NewsArticle/MyNewArticle"class="btn btn-warning">My News</a>
         }
-        @if (role == "Admin")
+        @if (User.IsInRole("Admin"))
         {
-            <a asp-page="/NewsArticle/Report" class="btn btn-danger">NewsArticle report</a>
-            <a asp-page="/SystemAccount/Index" class="btn btn-danger">Account Management</a>
+            <a asp-page="/Report/Index" class="btn btn-danger">News Report</a>
+            <a asp-page="/SystemAccounts/Index" class="btn btn-danger">Account Management</a>
         }
     </div>
+
 </div>
 <hr>
 
-<h3>Highlight Article</h3>
+<h3 class="mt-4">Highlight Article</h3>
 
 @if (Model.RandomArticle != null)
 {
-    <div class="card mt-4 shadow-sm bg-dark text-light border border-secondary rounded-5 p-10">
+    <div class="card mt-4 shadow-sm bg-dark text-light border rounded-5 p-4">
         <div class="card-body">
             <h2 class="card-title fw-bold text-warning">@Model.RandomArticle.NewsTitle</h2>
             <h4 class="card-subtitle text-muted">@Model.RandomArticle.Headline</h4>
-            <h5 class="card-subtitle text-primary my-4">Category: @Model.RandomArticle.Category.CategoryName</h5>
+            @if (Model.RandomArticle.Category != null)
+            {
+                <h5 class="card-subtitle text-primary my-4">Category: @Model.RandomArticle.Category.CategoryName</h5>
+            }
 
             <h6>
                 <span class="text-light">Tags:</span>
-                @{
-                    var tags = Model.RandomArticle.Tags.Select(t => t.TagName).ToList();
-                }
-                @for (int i = 0; i < tags.Count; i++)
+                @if (Model.RandomArticle.Tags != null && Model.RandomArticle.Tags.Any())
                 {
-                    <span class="text-danger">@tags[i]</span>
-                    <span class="text-danger">@(i < tags.Count - 1 ? "," : ".")</span>
+                    var tags = Model.RandomArticle.Tags.Select(t => t.TagName).ToList();
+                    @for (int i = 0; i < tags.Count; i++)
+                    {
+                        <span class="text-danger">@tags[i]</span>
+                        <span class="text-danger">@(i < tags.Count - 1 ? "," : ".")</span>
+                    }
                 }
             </h6>
             <p class="card-text mt-3">@Model.RandomArticle.NewsContent</p>
-            <small class="text-secondary">🕒 Ngày tạo: @Model.RandomArticle.CreatedDate?.ToString("dd/MM/yyyy")</small>
+            <small class="text-secondary">🕒 Created on: @Model.RandomArticle.CreatedDate?.ToString("dd/MM/yyyy")</small>
         </div>
     </div>
 }
@@ -55,21 +61,8 @@ else
     <p class="alert alert-warning mt-4">There are no articles to display.</p>
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to the Home Page</h1>
 
-    @if (User.Identity.IsAuthenticated)
-    {
-        <p>Welcome, @User.Identity.Name!</p>
-        <a href="/SystemAccounts/Logout" class="btn btn-danger">Logout</a> 
-    }
-    else
-    {
-        <a href="/SystemAccounts/Login" class="btn btn-primary">Login</a>
-    }
-</div>
-<hr>
-<h3>List Articles</h3>
+<h3 class="mt-4">List Articles</h3>
 
 @if (Model.Articles != null && Model.Articles.Any())
 {
@@ -77,25 +70,28 @@ else
     {
         <div class="card mt-4 shadow-sm">
             <div class="card-body">
-                <div class="p-3 bg-light text-light rounded">
+                <div class="p-3 bg-light rounded">
                     <h2 class="card-title fw-bold text-dark">@article.NewsTitle</h2>
                     <h4 class="card-subtitle text-muted">@article.Headline</h4>
-                    <h5 class="card-subtitle text-primary my-4">Category: @Model.RandomArticle.Category.CategoryName</h5>
-
-                </div>
-                <h6 style="color: red;">
-                    Tags:
-                    @{
-                        var tags = article.Tags.Select(t => t.TagName).ToList();
-                    }
-                    @for (int i = 0; i < tags.Count; i++)
+                    @if (article.Category != null)
                     {
-                        <span style="color: red;">@tags[i]</span>
-                        <span style="color: red;">@(i < tags.Count - 1 ? "," : "")</span>
+                        <h5 class="card-subtitle text-primary my-4">Category: @article.Category.CategoryName</h5>
+                    }
+                </div>
+                <h6 class="text-danger">
+                    Tags:
+                    @if (article.Tags != null && article.Tags.Any())
+                    {
+                        var tags = article.Tags.Select(t => t.TagName).ToList();
+                        @for (int i = 0; i < tags.Count; i++)
+                        {
+                            <span class="text-danger">@tags[i]</span>
+                            <span class="text-danger">@(i < tags.Count() - 1 ? "," : "")</span>
+                        }
                     }
                 </h6>
                 <p class="card-text mt-3">@article.NewsContent</p>
-                <small class="text-secondary">🕒 Ngày tạo: @article.CreatedDate?.ToString("dd/MM/yyyy")</small>
+                <small class="text-secondary">🕒 Created on: @article.CreatedDate?.ToString("dd/MM/yyyy")</small>
             </div>
         </div>
     }
