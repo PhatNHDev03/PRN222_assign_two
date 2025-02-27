@@ -7,8 +7,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 // Đăng ký Database và Configuration
 builder.Services.AddDatabaseAndConfiguration(builder.Configuration);
+builder.Services.AddAuthentication("Cookies")
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/SystemAccounts/LoginPage";
+        options.LogoutPath = "/SystemAccounts/Logout";
+    });
+
+builder.Services.AddRazorPages();
 
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddRepositories();
 builder.Services.AddServices();
 builder.Services.AddSession();
@@ -21,7 +30,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

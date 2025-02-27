@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\hoang\\OneDrive\\Desktop\\ASM2\\PRN222_assign_two\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FC462A-380D-4C60-890F-708B7637AB8A}|FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage.csproj|c:\\users\\hoang\\onedrive\\desktop\\asm2\\prn222_assign_two\\funewsmanagementsystem.webrazorpage\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FC462A-380D-4C60-890F-708B7637AB8A}|FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage.csproj|solutionrelative:funewsmanagementsystem.webrazorpage\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FC462A-380D-4C60-890F-708B7637AB8A}|FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage.csproj|c:\\users\\hoang\\onedrive\\desktop\\asm2\\prn222_assign_two\\funewsmanagementsystem.webrazorpage\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FC462A-380D-4C60-890F-708B7637AB8A}|FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage.csproj|solutionrelative:funewsmanagementsystem.webrazorpage\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FC462A-380D-4C60-890F-708B7637AB8A}|FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage.csproj|c:\\users\\hoang\\onedrive\\desktop\\asm2\\prn222_assign_two\\funewsmanagementsystem.webrazorpage\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FC462A-380D-4C60-890F-708B7637AB8A}|FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage.csproj|solutionrelative:funewsmanagementsystem.webrazorpage\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FC462A-380D-4C60-890F-708B7637AB8A}|FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage.csproj|c:\\users\\hoang\\onedrive\\desktop\\asm2\\prn222_assign_two\\funewsmanagementsystem.webrazorpage\\pages\\systemaccounts\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -66,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 366,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
@@ -123,13 +123,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\ASM2\\PRN222_assign_two\\FUNewsManagementSystem.WebRazorPage\\Program.cs",
               "RelativeDocumentMoniker": "FUNewsManagementSystem.WebRazorPage\\Program.cs",
               "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\ASM2\\PRN222_assign_two\\FUNewsManagementSystem.WebRazorPage\\Program.cs",
               "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-27T15:48:28.277Z",
               "EditorCaption": ""
@@ -172,13 +172,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\ASM2\\PRN222_assign_two\\FUNewsManagementSystem.WebRazorPage\\Pages\\Index.cshtml",
               "RelativeDocumentMoniker": "FUNewsManagementSystem.WebRazorPage\\Pages\\Index.cshtml",
               "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\ASM2\\PRN222_assign_two\\FUNewsManagementSystem.WebRazorPage\\Pages\\Index.cshtml",
               "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\Pages\\Index.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAYwBAAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-02-27T16:19:55.138Z",
               "EditorCaption": ""

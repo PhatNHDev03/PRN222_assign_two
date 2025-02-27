@@ -1,10 +1,21 @@
 ﻿@page
-@model IndexModel
+@using Microsoft.AspNetCore.Authentication.Cookies
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Mvc.RazorPages
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to the Home Page</h1>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>Welcome, @User.Identity.Name!</p>
+        <a href="/SystemAccounts/Logout" class="btn btn-danger">Logout</a> 
+    }
+    else
+    {
+        <a href="/SystemAccounts/Login" class="btn btn-primary">Login</a>
+    }
 </div>
