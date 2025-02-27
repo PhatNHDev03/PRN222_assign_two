@@ -16,6 +16,7 @@ namespace FUNewsManagementSystem.DataAccess.IRepository
         void DeleteTag(int id);
         int GetLastId();
         List<Tag> GetTagsByIds(List<int> tagIds);
+         (List<Tag>, int totalItems) findALlWithPagination(int pg, int pageSize);
     }
 
 }

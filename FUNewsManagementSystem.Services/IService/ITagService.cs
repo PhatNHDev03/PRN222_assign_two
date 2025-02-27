@@ -16,6 +16,8 @@ namespace FUNewsManagementSystem.Services.IService
         void DeleteTag(int id);
         int getLastId();
         List<Tag> GetTagsByIds(List<int> tagIds);
+        (List<Tag>, int totalItems) findALlWithPagination(int pg, int pageSize);
+
 
     }
 }

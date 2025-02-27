@@ -99,7 +99,7 @@ namespace FUNewsManagementSystem.DataAccess
                 .FirstOrDefault(x => x.AccountId == id);
         public (List<SystemAccount>, int totalItems) findALlWithPagination(int pg, int pageSize)
         {
-            var list = _context.SystemAccounts.ToList();
+            var list = _context.SystemAccounts.OrderByDescending(x=>x.AccountId).ToList();
         
             if (pg == 1) { 
                 pg=1;

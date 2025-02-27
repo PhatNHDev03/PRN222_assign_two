@@ -47,5 +47,10 @@ namespace FUNewsManagementSystem.Services
 
         public List<Tag> GetTagsByIds(List<int> tagIds)
        => _tagRepository.GetTagsByIds(tagIds);
+
+        public (List<Tag>, int totalItems) findALlWithPagination(int pg, int pageSize)
+        {
+            return _tagRepository.findALlWithPagination(pg, pageSize);
+        }
     }
 }
