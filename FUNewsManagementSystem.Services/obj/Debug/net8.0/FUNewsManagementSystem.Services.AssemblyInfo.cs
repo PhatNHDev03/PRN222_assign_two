@@ -14,7 +14,13 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FUNewsManagementSystem.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ebf0704f4815c22d66de261033eceb3fe0a3cb7")]
+||||||| 07dc258
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e8ce784b31de58a1a5d5f665eca686bdad60f79d")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+50e89b4ec1b069210e455b98a69718a40a04c01e")]
+>>>>>>> origin/mergeMainToHuy
 [assembly: System.Reflection.AssemblyProductAttribute("FUNewsManagementSystem.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FUNewsManagementSystem.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

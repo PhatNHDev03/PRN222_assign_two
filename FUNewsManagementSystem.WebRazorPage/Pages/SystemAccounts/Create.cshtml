@@ -1,0 +1,37 @@
+﻿@page
+@{
+    Layout = null;
+}
+@model FUNewsManagementSystem.WebRazorPage.Pages.SystemAccounts.CreateModel
+
+<div class="container p-4">
+    <h4 class="mb-3">Create New System Account</h4>
+
+    <form id="createAccountForm" method="post" action="/SystemAccounts/Create">
+        @Html.AntiForgeryToken()
+
+        <div class="mb-3">
+            <label class="form-label">Account Name</label>
+            <input asp-for="SystemAccount.AccountName" class="form-control" required />
+            <span asp-validation-for="SystemAccount.AccountName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Account Email</label>
+            <input asp-for="SystemAccount.AccountEmail" type="email" class="form-control" required />
+            <span asp-validation-for="SystemAccount.AccountEmail" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Role</label>
+            <select asp-for="SystemAccount.AccountRole" class="form-control">
+                <option value="1">Staff</option>
+                <option value="2">Lecturer</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+
+    <div id="messageBox" class="mt-3"></div>
+</div>

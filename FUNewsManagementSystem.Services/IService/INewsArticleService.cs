@@ -23,6 +23,7 @@ namespace FUNewsManagementSystem.Services.IService
         void save();
         DateTime? LimitEndDate();
         void disableACateGoryId(short categoryId);
+        public DateTime FirstCreateDate();
 
     }
 }

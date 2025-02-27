@@ -71,5 +71,7 @@ namespace FUNewsManagementSystem.Services
             _newsArticleRepository.disableACateGoryId(categoryId);
         }
 
+        public DateTime FirstCreateDate()=>_newsArticleRepository.FirstCreateDate();
+       
     }
 }

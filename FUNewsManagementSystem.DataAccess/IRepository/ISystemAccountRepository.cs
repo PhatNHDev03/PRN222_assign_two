@@ -21,7 +21,10 @@ namespace FUNewsManagementSystem.DataAccess.IRepository
         void DeleteByObject(SystemAccount systemAccount);
         SystemAccount IsExistEmail(string accountEmail);
         List<SystemAccount> FindAllWithArticles();
+        public List<SystemAccount> FindAllWithArticlesWithDate(DateTime startDaTe, DateTime endDate);
         SystemAccount FindAllWithArticlesById(short id);
+         SystemAccount FindAllWithArticlesByIdWithDate(short id, DateTime startDate, DateTime endDate);
+        (List<SystemAccount>, int totalItems) findALlWithPagination(int pg, int pageSize);
     }
 
 }
