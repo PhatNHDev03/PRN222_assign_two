@@ -1,4 +1,5 @@
 using FUNewsManagementSystem.BusinessObject;
+using FUNewsManagementSystem.BusinessObject.Pagination;
 using FUNewsManagementSystem.Services.IService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -8,6 +9,8 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Tags
     public class IndexModel : PageModel
     {
         public List<Tag> Tags { get; set; }
+        public Pager Pager { get; set; }
+
         private readonly ITagService _tagService;
 
 
@@ -17,10 +20,12 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Tags
 
         }
 
-        public IActionResult OnGet()
+        public void OnGet(int pg=1)
         {
-            Tags = _tagService.GetAllTags();
-            return Page();
+            int pageSize = 10;
+            var (TagsAll, TotalItem) = _tagService.findALlWithPagination(pg, pageSize);
+            Pager = new Pager(TotalItem,pg,pageSize);
+            Tags = TagsAll;
         }
     }
 }

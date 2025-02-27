@@ -1,4 +1,5 @@
 ﻿using FUNewsManagementSystem.BusinessObject;
+using FUNewsManagementSystem.BusinessObject.Pagination;
 using FUNewsManagementSystem.DataAccess.IRepository;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -67,6 +68,21 @@ namespace FUNewsManagementSystem.DataAccess
         public List<Tag> GetTagsByIds(List<int> tagIds)
         {
             return _context.Tags.Where(t => tagIds.Contains(t.TagId)).ToList();
+        }
+
+        public (List<Tag>, int totalItems) findALlWithPagination(int pg, int pageSize)
+        {
+            var list = _context.Tags.OrderByDescending(x=>x.TagId).ToList();
+
+            if (pg == 1)
+            {
+                pg = 1;
+            }
+            int resCount = list.Count();
+            var pager = new Pager(resCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+            var data = list.Skip(recSkip).Take(pager.Pagesize).ToList();
+            return (data, resCount);
         }
     }
 

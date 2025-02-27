@@ -28,13 +28,12 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Tags
         {
             if (!ModelState.IsValid)
             {
-                var errors = string.Join(", ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
-                Console.WriteLine("ModelState is invalid. Errors: " + errors);
                 return new JsonResult(new { success = false, message = "Invalid data!" });
             }
 
             try
             {
+                Tag.TagId = _tagService.getLastId()+1;
                 _tagService.AddTag(Tag);
                 return new JsonResult(new { success = true, message = "Tag created successfully!", redirectUrl = "/Tag/Index" });
             }
