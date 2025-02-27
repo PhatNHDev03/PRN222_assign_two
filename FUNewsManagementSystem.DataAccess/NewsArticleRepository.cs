@@ -20,7 +20,7 @@ namespace FUNewsManagementSystem.DataAccess
 
         public List<NewsArticle> GetAllNewsArticlesWithDetails()
         {
-            var r = _context.NewsArticles
+            var r = _context.NewsArticles.Where(a => a.NewsStatus == true)
                 .Include(n => n.Category).Include(n => n.Tags).Include(u => u.CreatedBy)
 
               .OrderByDescending(o => o.NewsArticleId).ToList();

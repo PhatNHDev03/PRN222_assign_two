@@ -34,6 +34,8 @@
         <div class="card-body">
             <h2 class="card-title fw-bold text-warning">@Model.RandomArticle.NewsTitle</h2>
             <h4 class="card-subtitle text-muted">@Model.RandomArticle.Headline</h4>
+            <h5 class="card-subtitle text-primary my-4">Category: @Model.RandomArticle.Category.CategoryName</h5>
+
             <h6>
                 <span class="text-light">Tags:</span>
                 @{
@@ -67,6 +69,8 @@ else
                 <div class="p-3 bg-light text-light rounded">
                     <h2 class="card-title fw-bold text-dark">@article.NewsTitle</h2>
                     <h4 class="card-subtitle text-muted">@article.Headline</h4>
+                    <h5 class="card-subtitle text-primary my-4">Category: @Model.RandomArticle.Category.CategoryName</h5>
+
                 </div>
                 <h6 style="color: red;">
                     Tags:
