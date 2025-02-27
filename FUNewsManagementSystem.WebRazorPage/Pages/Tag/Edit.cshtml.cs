@@ -9,7 +9,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Tag
         private readonly ITagService _tagService;
 
         [BindProperty]
-        public FUNewsManagementSystem.BusinessObject.Tag EditTag { get; set; }
+        public FUNewsManagementSystem.BusinessObject.Tag Tag { get; set; }
 
         public EditModel(ITagService tagService)
         {
@@ -18,7 +18,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Tag
 
         public void OnGet(int id)
         {
-            EditTag = _tagService.GetTagById(id);
+            Tag = _tagService.GetTagById(id);
         }
 
         public IActionResult OnPost()
@@ -27,7 +27,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Tag
             {
                 return Page();
             }
-            _tagService.UpdateTag(EditTag);
+            _tagService.UpdateTag(Tag);
             return RedirectToPage("Index");
         }
     }

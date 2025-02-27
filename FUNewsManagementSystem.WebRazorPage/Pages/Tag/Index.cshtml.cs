@@ -19,7 +19,8 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Tag
 
         public void OnGet()
         {
-            Tags = _tagService.GetAllTags();
+            Tags = _tagService.GetAllTags() ?? new List<FUNewsManagementSystem.BusinessObject.Tag>();
+            Console.WriteLine("Tags count: " + Tags?.Count);
         }
     }
 }

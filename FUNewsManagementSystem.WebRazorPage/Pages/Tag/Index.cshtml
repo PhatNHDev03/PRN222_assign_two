@@ -4,12 +4,12 @@
     ViewData["Title"] = "Tags";
 }
 
+
+
 <h2>Tag List</h2>
-
-<a asp-page="Create" class="btn btn-primary">Add New Tag</a>
-
-<table class="table">
-    <thead>
+<button class="btn btn-sm btn-primary m-2" onclick="openModal('Create')">Add New Tag</button>
+<table class="table table-bordered">
+    <thead class="thead-dark">
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -18,17 +18,134 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var tag in Model.Tags)
+        @foreach (var item in Model.Tags)
         {
             <tr>
-                <td>@tag.TagId</td>
-                <td>@tag.TagName</td>
-                <td>@tag.Note</td>
+                <td>@item.TagId</td>
+                <td>@item.TagName</td>
+                <td>@item.Note</td>
                 <td>
-                    <a asp-page="Edit" asp-route-id="@tag.TagId">Edit</a> |
-                    <a asp-page="Delete" asp-route-id="@tag.TagId">Delete</a>
+                    <button class="btn btn-warning btn-sm" onclick="openModal('Edit', @item.TagId)">Edit</button>
+                    <button class="btn btn-danger btn-sm" onclick="openModal('Delete', @item.TagId)">Delete</button>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div id="modalForm"></div>
+    </div>
+</div>
+
+<script>
+        async function openModal(action, id = null) {
+        let url = action === 'Create' ? '/Tag/Create' : `/Tag/${action}?id=${id}`;
+
+        try {
+            let response = await fetch(url);
+            let data = await response.text();
+
+            let modalForm = document.getElementById("modalForm");
+            modalForm.innerHTML = data;
+            document.getElementById("modal").style.display = "block";
+
+            attachSubmitHandler();
+        } catch (error) {
+            console.error("Error loading modal:", error);
+        }
+    }
+
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+        document.getElementById("modalForm").innerHTML = "";
+    }
+
+    function attachSubmitHandler() {
+        let form = document.getElementById("createAccountForm");
+
+        if (!form) return;
+
+        form.onsubmit = async function (event) {
+            event.preventDefault(); // Prevent page reload
+
+            let formData = new FormData(event.target);
+
+            // If CSRF protection is used, include the CSRF token in the formData
+            let csrfToken = document.querySelector('input[name="__RequestVerificationToken"]').value;
+            formData.append("__RequestVerificationToken", csrfToken);
+
+            let url = "https://localhost:7051/Tag/Create"; // Use the full URL here
+            console.log("Submitting to URL:", url);
+
+            try {
+                let response = await fetch(url, {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        // Ensure headers are set if needed (e.g., for JSON or CSRF token)
+                        "Accept": "application/json",
+                        "Content-Type": "application/x-www-form-urlencoded" // If you're submitting form data
+                    }
+                });
+
+                let data = await response.json();
+                console.log("Response:", data);
+
+                if (data.success) {
+                    closeModal();
+                    window.location.href = data.redirectUrl; // Navigate if needed
+                } else {
+                    document.getElementById("messageBox").innerHTML = `<div class="alert alert-danger">${data.message}</div>`;
+                }
+            } catch (error) {
+                console.error("Error submitting form:", error);
+            }
+        };
+    }
+
+</script>
+
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+        box-shadow: 0px 0px 10px 0px #000;
+    }
+    .close-btn {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .close-btn:hover {
+        color: black;
+    }
+</style>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}

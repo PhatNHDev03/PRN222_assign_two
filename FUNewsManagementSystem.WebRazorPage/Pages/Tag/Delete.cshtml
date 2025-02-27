@@ -2,12 +2,13 @@
 @model FUNewsManagementSystem.WebRazorPage.Pages.Tag.DeleteModel
 @{
     ViewData["Title"] = "Delete Tag";
+    Layout = null;
 }
 
 <h2>Are you sure you want to delete this tag?</h2>
 
-<form method="post">
-    <input type="hidden" asp-for="DeleteTag.TagId" />
+<form method="post" asp-page="Delete" asp-route-id="@Model.Tag.TagId">
+    <input type="hidden" asp-for="Tag.TagId" />
     <button type="submit" class="btn btn-danger">Delete</button>
     <a asp-page="Index" class="btn btn-secondary">Cancel</a>
 </form>
