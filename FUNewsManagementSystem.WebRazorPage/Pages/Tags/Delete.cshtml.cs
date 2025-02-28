@@ -1,6 +1,7 @@
 using FUNewsManagementSystem.Services.IService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using FUNewsManagementSystem.BusinessObject;
 
 namespace FUNewsManagementSystem.WebRazorPage.Pages.Tags
 {
@@ -9,7 +10,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Tags
         private readonly ITagService _tagService;
 
         [BindProperty]
-        public FUNewsManagementSystem.BusinessObject.Tag Tag { get; set; }
+        public Tag Tag { get; set; }
 
         public DeleteModel(ITagService tagService)
         {

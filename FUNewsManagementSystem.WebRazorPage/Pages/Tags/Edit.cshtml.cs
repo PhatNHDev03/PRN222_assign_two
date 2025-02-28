@@ -10,7 +10,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Tags
         private readonly ITagService _tagService;
 
         [BindProperty]
-        public FUNewsManagementSystem.BusinessObject.Tag Tag { get; set; }
+        public Tag Tag { get; set; }
 
         public EditModel(ITagService tagService)
         {
