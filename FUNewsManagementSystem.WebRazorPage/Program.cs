@@ -5,6 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+//sigmalR
+builder.Services.AddSignalR();
 // Đăng ký Database và Configuration
 builder.Services.AddDatabaseAndConfiguration(builder.Configuration);
 builder.Services.AddAuthentication("Cookies")
@@ -38,7 +40,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
+app.MapHub<SignalrServer>("/SignalrServer");
 app.MapRazorPages();
 
 app.Run();

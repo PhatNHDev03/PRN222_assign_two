@@ -2,3 +2,17 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+
+"use strict"
+
+var connection = new signalR.HubConnectionBuilder().withUrl("/signalRServer").build();
+
+
+connection.on("LoadAllTags", function(){
+    location.href = '/Tags/Index';
+});
+
+
+connection.start().catch(function (err) {
+    return console.error(err.toString());
+});

@@ -1,7 +1,9 @@
 using FUNewsManagementSystem.BusinessObject;
+using FUNewsManagementSystem.Services;
 using FUNewsManagementSystem.Services.IService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.SignalR;
 
 namespace FUNewsManagementSystem.WebRazorPage.Pages.Tags
 {
@@ -10,13 +12,14 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Tags
     {
         private readonly ITagService _tagService;
 
-       
+       private readonly     IHubContext<SignalrServer> _hubContext;
         public Tag Tag { get; set; }
         public List<Tag> Tags { get; set; }
 
-        public CreateModel(ITagService tagService)
+        public CreateModel(ITagService tagService,IHubContext<SignalrServer> hubContext)
         {
             _tagService = tagService;
+            _hubContext = hubContext;
         }
         public IActionResult OnGet()
         {
@@ -24,7 +27,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Tags
             return Page();
         }
 
-        public IActionResult OnPost()
+        public async Task< IActionResult> OnPost()
         {
             if (!ModelState.IsValid)
             {
@@ -35,6 +38,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Tags
             {
                 Tag.TagId = _tagService.getLastId()+1;
                 _tagService.AddTag(Tag);
+                await _hubContext.Clients.All.SendAsync("LoadAllTags");
                 return new JsonResult(new { success = true, message = "Tag created successfully!", redirectUrl = "/Tag/Index" });
             }
             catch (Exception ex)
