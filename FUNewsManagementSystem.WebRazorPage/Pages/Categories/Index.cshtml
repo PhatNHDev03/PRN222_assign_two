@@ -1,0 +1,225 @@
+﻿@page
+@model FUNewsManagementSystem.WebRazorPage.Pages.Categories.IndexModel
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<h1>Categories</h1>
+
+<!-- Nút tạo mới mở popup -->
+<p>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+        Create New
+    </button>
+</p>
+
+<!-- Bảng hiển thị danh sách category -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Category ID</th>
+            <th>Category Name</th>
+            <th>Description</th>
+            <th>Parent Category ID</th>
+            <th>Is Active</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model.Categories)
+        {
+            <tr>
+                <td>@category.CategoryId</td>
+                <td>@category.CategoryName</td>
+                <td>@category.CategoryDesciption</td>
+                <td>@(category.ParentCategory?.CategoryId.ToString() ?? "N/A")</td>
+                <td>@(category.IsActive == true ? "True" : "False")</td>
+                <td>
+                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal" onclick="loadEditForm('@category.CategoryId')">
+                        Edit
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" onclick="loadDeleteForm('@category.CategoryId')">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Modal cho Edit -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="editModalBody">
+                <!-- Nội dung form sẽ được load động qua AJAX -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" id="saveEditButton">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal cho Create -->
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createModalLabel">Create Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="createModalBody">
+                <!-- Nội dung form sẽ được load động qua AJAX -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" id="saveCreateButton">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal cho Delete -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="deleteModalBody">
+                <!-- Nội dung xác nhận xóa sẽ được load động qua AJAX -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">
+                    Confirm Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Load form edit
+        function loadEditForm(categoryId) {
+            fetch(`/Categories/Edit?id=${categoryId}`)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('editModalBody').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading edit form:', error));
+        }
+
+        // Load form create khi nhấn nút "Create New"
+        window.onload = function() {
+            document.querySelector('[data-bs-target="#createModal"]').addEventListener('click', function() {
+                fetch(`/Categories/Create`)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('createModalBody').innerHTML = data;
+                    })
+                    .catch(error => console.error('Error loading create form:', error));
+            });
+        };
+
+        // Xử lý submit form create
+        document.addEventListener('DOMContentLoaded', function() {
+            $(document).on('click', '#saveCreateButton', function(event) {
+                event.preventDefault();
+                var form = $('#createModalBody').find('#createForm');
+                var formData = form.serialize();
+                $.ajax({
+                    url: '/Categories/Create?handler=Create',
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                            $('#createModal').modal('hide');
+                            location.reload();
+                        } else {
+                            alert(response.message || 'Error creating category.');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                        alert('An unexpected error occurred.');
+                    }
+                });
+            });
+
+            // Xử lý submit form edit
+            $(document).on('click', '#saveEditButton', function(event) {
+                event.preventDefault();
+                var form = $('#editModalBody').find('#editForm');
+                var formData = form.serialize();
+                $.ajax({
+                    url: '/Categories/Edit?handler=Edit',
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                            $('#editModal').modal('hide');
+                            location.reload();
+                        } else {
+                            alert(response.message || 'Error editing category.');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                        alert('An unexpected error occurred.');
+                    }
+                });
+            });
+
+            // Load form delete khi nhấn nút "Delete"
+            window.loadDeleteForm = function(categoryId) {
+                fetch(`/Categories/Delete?id=${categoryId}`)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('deleteModalBody').innerHTML = data;
+                        $('#deleteModal').modal('show'); // Hiển thị modal
+                    })
+                    .catch(error => console.error('Error loading delete form:', error));
+            };
+
+            // Xử lý submit form delete
+            $(document).on('click', '#confirmDeleteButton', function() {
+                var form = $('#deleteModalBody').find('#deleteForm');
+                var formData = form.serialize();
+
+                $.ajax({
+                    url: '/Categories/Delete?handler=Delete',
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                            $('#deleteModal').modal('hide');
+                            location.reload(); // Reload trang để cập nhật danh sách
+                        } else {
+                            alert(response.message || 'Error deleting category.');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                        alert('An unexpected error occurred.');
+                    }
+                });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,36 @@
+﻿@page
+@model FUNewsManagementSystem.WebRazorPage.Pages.Categories.CreateModel
+@{
+    Layout = null;
+}
+
+<form method="post" id="createForm">
+    <div class="mb-3">
+        <label asp-for="Category.CategoryName" class="form-label">Category Name</label>
+        <input asp-for="Category.CategoryName" class="form-control" required />
+        <span asp-validation-for="Category.CategoryName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Category.CategoryDesciption" class="form-label">Description</label>
+        <textarea asp-for="Category.CategoryDesciption" class="form-control"></textarea>
+        <span asp-validation-for="Category.CategoryDesciption" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Category.ParentCategoryId" class="form-label">Parent Category ID</label>
+        <input asp-for="Category.ParentCategoryId" class="form-control" type="number" />
+        <span asp-validation-for="Category.ParentCategoryId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Category.IsActive" class="form-label">Is Active</label>
+        <!-- Sử dụng checkbox với giá trị bool không nullable -->
+        <input type="checkbox" class="form-check-input" name="Category.IsActive" value="true"
+        @(Model.Category.IsActive == true ? "checked" : null) />
+        <input type="hidden" name="Category.IsActive" value="false" />
+    </div>
+
+    <!-- Thêm nút submit ẩn để dễ debug (sẽ được xử lý bởi JavaScript trong Index.cshtml) -->
+    <button type="submit" class="btn btn-success" style="display: none;">Submit</button>
+</form>

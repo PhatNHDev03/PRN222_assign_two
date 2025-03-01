@@ -1,0 +1,15 @@
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\bin\Debug\net8.0\FUNewsManagementSystem.BusinessObject.deps.json
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\bin\Debug\net8.0\FUNewsManagementSystem.BusinessObject.runtimeconfig.json
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\bin\Debug\net8.0\FUNewsManagementSystem.BusinessObject.dll
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\bin\Debug\net8.0\FUNewsManagementSystem.BusinessObject.pdb
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.csproj.AssemblyReference.cache
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.AssemblyInfoInputs.cache
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.AssemblyInfo.cs
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.csproj.CoreCompileInputs.cache
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.sourcelink.json
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.dll
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\refint\FUNewsManagementSystem.BusinessObject.dll
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.pdb
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.genruntimeconfig.cache
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\ref\FUNewsManagementSystem.BusinessObject.dll
