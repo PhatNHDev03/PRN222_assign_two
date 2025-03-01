@@ -1,0 +1,65 @@
+﻿@page
+@model FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles.CreateModel
+@{
+    Layout = null;
+}
+
+<form method="post" id="createForm" asp-page="Create">
+    <!-- Không cần input cho NewsArticleID -->
+    <div>
+        <label for="NewsArticleViewModel_NewsTitle">Title</label>
+        <input id="NewsArticleViewModel_NewsTitle" asp-for="NewsArticleViewModel.NewsTitle" required />
+        <span asp-validation-for="NewsArticleViewModel.NewsTitle" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label for="NewsArticleViewModel_Headline">Headline</label>
+        <input id="NewsArticleViewModel_Headline" asp-for="NewsArticleViewModel.Headline" required />
+        <span asp-validation-for="NewsArticleViewModel.Headline" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label for="NewsArticleViewModel_NewsContent">Content</label>
+        <textarea id="NewsArticleViewModel_NewsContent" asp-for="NewsArticleViewModel.NewsContent"></textarea>
+        <span asp-validation-for="NewsArticleViewModel.NewsContent" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label for="NewsArticleViewModel_NewsSource">News Source</label>
+        <input id="NewsArticleViewModel_NewsSource" asp-for="NewsArticleViewModel.NewsSource" />
+        <span asp-validation-for="NewsArticleViewModel.NewsSource" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label for="NewsArticleViewModel_CategoryID">Category</label>
+        <select id="NewsArticleViewModel_CategoryID" asp-for="NewsArticleViewModel.CategoryID">
+            @foreach (var category in Model.Categories)
+            {
+                <option value="@category.CategoryId">@category.CategoryName</option>
+            }
+        </select>
+        <span asp-validation-for="NewsArticleViewModel.CategoryID" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Tags</label>
+        <div>
+            @foreach (var tag in Model.Tags)
+            {
+                <div>
+                    <input type="checkbox" name="NewsArticleViewModel.SelectedTags"
+                           value="@tag.TagId"
+                           id="tag_@tag.TagId" />
+                    <label for="tag_@tag.TagId">@tag.TagName</label>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div>
+        <label for="NewsArticleViewModel_NewsStatus">Status</label>
+        <input type="checkbox" id="NewsArticleViewModel_NewsStatus" asp-for="NewsArticleViewModel.NewsStatus" />
+    </div>
+
+    <button type="submit">Save</button>
+</form>

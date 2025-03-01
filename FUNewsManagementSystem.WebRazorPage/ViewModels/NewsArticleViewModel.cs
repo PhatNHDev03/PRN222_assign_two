@@ -2,7 +2,7 @@
 {
     public class NewsArticleViewModel
     {
-        public string NewsArticleID { get; set; }
+        public string? NewsArticleID { get; set; }
         public string NewsTitle { get; set; }
         public string Headline { get; set; }
         public string NewsContent { get; set; }

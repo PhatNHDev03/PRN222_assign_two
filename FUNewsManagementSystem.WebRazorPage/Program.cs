@@ -1,5 +1,7 @@
 ﻿using FUNewsManagementSystem.DataAccess;
+using FUNewsManagementSystem.DataAccess.IRepository;
 using FUNewsManagementSystem.Services;
+using FUNewsManagementSystem.Services.IService;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,8 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddRepositories();
 builder.Services.AddServices();
 builder.Services.AddSession();
+builder.Services.AddScoped<INewsArticleRepository, NewsArticleRepository>();
+builder.Services.AddScoped<INewsArticleService, NewsArticleService>(); 
 var app = builder.Build();
 app.UseSession();
 // Configure the HTTP request pipeline.

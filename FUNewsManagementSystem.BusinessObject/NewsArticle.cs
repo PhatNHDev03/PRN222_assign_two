@@ -22,7 +22,7 @@ public partial class NewsArticle
     public short? CategoryId { get; set; }
 
     public bool? NewsStatus { get; set; }
-
+     
     public short? CreatedById { get; set; }
 
     public short? UpdatedById { get; set; }

@@ -1,0 +1,21 @@
+﻿@page
+@model FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles.DeleteModel
+@{
+    Layout = null;
+}
+
+<div>
+    <h4>Are you sure you want to delete this news article?</h4>
+
+    <div>
+        <strong>ID: </strong>@Model.NewsArticle?.NewsArticleId
+    </div>
+    <div>
+        <strong>Title: </strong>@Model.NewsArticle?.NewsTitle
+    </div>
+
+    <form method="post" id="deleteForm">
+        <!-- Ẩn ID để Handler biết cần xóa ID nào -->
+        <input type="hidden" asp-for="NewsArticleId" />
+    </form>
+</div>

@@ -1,0 +1,210 @@
+﻿@page
+@model FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles.IndexModel
+@{
+    ViewData["Title"] = "News Articles";
+}
+
+<h1>News Articles</h1>
+
+<!-- Nút tạo mới mở popup -->
+<p>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+        Create New
+    </button>
+</p>
+
+<!-- Bảng hiển thị danh sách bài viết -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>News Article ID</th>
+            <th>Title</th>
+            <th>Headline</th>
+            <th>Created Date</th>
+            <th>Content</th>
+            <th>News Source</th>
+            <th>Category ID</th>
+            <th>Status</th>
+            <th>Created By ID</th>
+            <th>Updated By ID</th>
+            <th>Modified Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var article in Model.NewsArticles)
+        {
+            <tr>
+                <td>@article.NewsArticleId</td>
+                <td>@article.NewsTitle</td>
+                <td>@article.Headline</td>
+                <td>@article.CreatedDate?.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                <td>@(article.NewsContent?.Length > 50 ? article.NewsContent.Substring(0, 50) + "..." : article.NewsContent)</td>
+                <td>@article.NewsSource</td>
+                <td>@(article.Category?.CategoryName ?? "N/A")</td>
+                <td>@(article.NewsStatus == true ? "True" : "False")</td>
+                <td>@article.CreatedById</td>
+                <td>@article.UpdatedById</td>
+                <td>@article.ModifiedDate?.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                <td>
+                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal" onclick="loadEditForm('@article.NewsArticleId')">
+                        Edit
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" onclick="loadDeleteForm('@article.NewsArticleId')">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Modal cho Edit -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit News Article</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="editModalBody">
+                <!-- Nội dung form sẽ được load động qua AJAX -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal cho Create -->
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createModalLabel">Create News Article</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="createModalBody">
+                <!-- Nội dung form sẽ được load động qua AJAX -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal cho Delete -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="deleteModalBody">
+                <!-- Nội dung xác nhận xóa sẽ được load động qua AJAX -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">
+                    Confirm Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Load form edit
+        function loadEditForm(articleId) {
+            fetch(`/NewsArticles/Edit?id=${articleId}`)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('editModalBody').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading edit form:', error));
+        }
+
+        // Load form create khi nhấn nút "Create New"
+        window.onload = function() {
+            document.querySelector('[data-bs-target="#createModal"]').addEventListener('click', function() {
+                fetch(`/NewsArticles/Create`)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('createModalBody').innerHTML = data;
+                    })
+                    .catch(error => console.error('Error loading create form:', error));
+            });
+        };
+
+        // Xử lý submit form create
+        document.addEventListener('DOMContentLoaded', function() {
+            $(document).on('submit', '#createForm', function(event) {
+                event.preventDefault();
+                var formData = $(this).serialize();
+                $.ajax({
+                    url: '/NewsArticles/Create?handler=Create',
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                            $('#createModal').modal('hide');
+                            location.reload();
+                        } else {
+                            alert(response.message || 'Error creating news article.');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                        alert('An unexpected error occurred.');
+                    }
+                });
+            });
+
+            // Load form delete khi nhấn nút "Delete"
+            window.loadDeleteForm = function(articleId) {
+                fetch(`/NewsArticles/Delete?id=${articleId}`)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('deleteModalBody').innerHTML = data;
+                        $('#deleteModal').modal('show'); // Hiển thị modal
+                    })
+                    .catch(error => console.error('Error loading delete form:', error));
+            };
+
+            // Xử lý submit form delete
+            $(document).on('click', '#confirmDeleteButton', function() {
+                var form = $('#deleteModalBody').find('#deleteForm');
+                var formData = form.serialize();
+
+                $.ajax({
+                    url: '/NewsArticles/Delete?handler=Delete',
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                            $('#deleteModal').modal('hide');
+                            location.reload(); // Reload trang để cập nhật danh sách
+                        } else {
+                            alert(response.message || 'Error deleting news article.');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                        alert('An unexpected error occurred.');
+                    }
+                });
+            });
+        });
+    </script>
+}

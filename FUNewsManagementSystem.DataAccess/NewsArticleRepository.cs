@@ -17,6 +17,16 @@ namespace FUNewsManagementSystem.DataAccess
         {
             _context = context;
         }
+        public List<NewsArticle> GetAllNewsArticles()
+        {
+            var r = _context.NewsArticles
+                .Include(n => n.Category)
+                .Include(n => n.Tags)
+                .Include(u => u.CreatedBy)
+                .OrderByDescending(o => o.NewsArticleId)
+                .ToList();
+            return r;
+        }
 
         public List<NewsArticle> GetAllNewsArticlesWithDetails()
         {
@@ -29,6 +39,11 @@ namespace FUNewsManagementSystem.DataAccess
 
         public NewsArticle GetNewsArticleById(string id)
         {
+            if (string.IsNullOrEmpty(id))
+            {
+                return null; 
+            }
+
             return _context.NewsArticles.Include(n => n.Tags).Include(n => n.Category)
                 .FirstOrDefault(n => n.NewsArticleId == id);
         }
@@ -54,23 +69,53 @@ namespace FUNewsManagementSystem.DataAccess
 
         public void DeleteNewsArticle(string id)
         {
-            var newsArticle = _context.NewsArticles.Find(id);
-            if (newsArticle != null)
+            using (var transaction = _context.Database.BeginTransaction())
             {
+                try
+                {
+                    var newsArticle = _context.NewsArticles
+                        .Include(na => na.Tags) // Bao gồm các tag liên quan để EF quản lý mối quan hệ
+                        .FirstOrDefault(na => na.NewsArticleId == id);
 
-                _context.NewsArticles.Remove(newsArticle);
-                _context.SaveChanges();
+                    if (newsArticle != null)
+                    {
+                        // Xóa tất cả các liên kết giữa NewsArticle và Tag (sẽ xóa các bản ghi trong bảng NewsTag)
+                        newsArticle.Tags.Clear(); // Xóa tất cả các tag liên quan, EF sẽ tự động xóa các bản ghi trong bảng NewsTag
+
+                        // Xóa bài viết
+                        _context.NewsArticles.Remove(newsArticle);
+
+                        // Lưu thay đổi
+                        _context.SaveChanges();
+
+                        // Commit transaction
+                        transaction.Commit();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Rollback transaction nếu có lỗi
+                    transaction.Rollback();
+                    throw new Exception($"Error deleting news article: {ex.Message}", ex);
+                }
             }
         }
+
+
         public NewsArticle GetLastNewsArticle()
         {
             return _context.NewsArticles
                 .OrderByDescending(n => n.NewsArticleId)
                 .FirstOrDefault();
         }
-        public string LastId() => _context.NewsArticles
-                .OrderByDescending(n => n.NewsArticleId)
-                .FirstOrDefault().NewsArticleId as string;
+        public string LastId()
+        {
+            var allArticles = _context.NewsArticles.ToList(); // Lấy toàn bộ dữ liệu vào bộ nhớ
+            var lastArticle = allArticles
+                .OrderByDescending(n => n.NewsArticleId != null && int.TryParse(n.NewsArticleId, out int id) ? id : 0)
+                .FirstOrDefault();
+            return lastArticle?.NewsArticleId ?? "0"; // Trả về "0" nếu không có bản ghi
+        }
         public List<NewsArticle> GetArticlesByCategory(int categoryId)
         {
             return _context.NewsArticles.Where(n => n.CategoryId == categoryId).ToList();

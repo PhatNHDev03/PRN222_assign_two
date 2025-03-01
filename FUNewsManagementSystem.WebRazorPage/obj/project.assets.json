@@ -7948,19 +7948,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lenovo\\.nuget\\packages\\": {}
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage.csproj",
+      "projectUniqueName": "D:\\code\\ass02\\PRN222_assign_two\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage.csproj",
       "projectName": "FUNewsManagementSystem.WebRazorPage",
-      "projectPath": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage.csproj",
-      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage\\obj\\",
+      "projectPath": "D:\\code\\ass02\\PRN222_assign_two\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "D:\\code\\ass02\\PRN222_assign_two\\FUNewsManagementSystem.WebRazorPage\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7969,18 +7974,17 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\Users\\Lenovo\\.nuget\\packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.BusinessObject\\FUNewsManagementSystem.BusinessObject.csproj": {
-              "projectPath": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.BusinessObject\\FUNewsManagementSystem.BusinessObject.csproj"
+            "D:\\code\\ass02\\PRN222_assign_two\\FUNewsManagementSystem.BusinessObject\\FUNewsManagementSystem.BusinessObject.csproj": {
+              "projectPath": "D:\\code\\ass02\\PRN222_assign_two\\FUNewsManagementSystem.BusinessObject\\FUNewsManagementSystem.BusinessObject.csproj"
             },
-            "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.Services\\FUNewsManagementSystem.Services.csproj": {
-              "projectPath": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.Services\\FUNewsManagementSystem.Services.csproj"
+            "D:\\code\\ass02\\PRN222_assign_two\\FUNewsManagementSystem.Services\\FUNewsManagementSystem.Services.csproj": {
+              "projectPath": "D:\\code\\ass02\\PRN222_assign_two\\FUNewsManagementSystem.Services\\FUNewsManagementSystem.Services.csproj"
             }
           }
         }
@@ -7994,7 +7998,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -8046,7 +8051,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -9,6 +9,8 @@ namespace FUNewsManagementSystem.DataAccess.IRepository
 {
     public interface INewsArticleRepository
     {
+        List<NewsArticle> GetAllNewsArticles();
+
         List<NewsArticle> GetAllNewsArticlesWithDetails();
         NewsArticle GetNewsArticleById(string id);
         void AddNewsArticle(NewsArticle newsArticle);

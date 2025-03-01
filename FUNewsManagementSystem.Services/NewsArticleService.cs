@@ -18,6 +18,10 @@ namespace FUNewsManagementSystem.Services
         {
             _newsArticleRepository = newsArticleRepository;
         }
+        public List<NewsArticle> GetAllNewsArticles()
+        {
+            return _newsArticleRepository.GetAllNewsArticles();
+        }
 
         public List<NewsArticle> GetAllNewsArticlesWithDetails()
         {
