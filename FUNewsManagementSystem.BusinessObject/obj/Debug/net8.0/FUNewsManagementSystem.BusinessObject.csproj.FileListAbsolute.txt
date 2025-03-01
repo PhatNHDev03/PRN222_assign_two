@@ -13,3 +13,18 @@ D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\obj\Debug\n
 D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.pdb
 D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.genruntimeconfig.cache
 D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\ref\FUNewsManagementSystem.BusinessObject.dll
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\bin\Debug\net8.0\FUNewsManagementSystem.BusinessObject.deps.json
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\bin\Debug\net8.0\FUNewsManagementSystem.BusinessObject.runtimeconfig.json
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\bin\Debug\net8.0\FUNewsManagementSystem.BusinessObject.dll
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\bin\Debug\net8.0\FUNewsManagementSystem.BusinessObject.pdb
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.csproj.AssemblyReference.cache
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.AssemblyInfoInputs.cache
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.AssemblyInfo.cs
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.csproj.CoreCompileInputs.cache
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.sourcelink.json
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.dll
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\refint\FUNewsManagementSystem.BusinessObject.dll
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.pdb
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\FUNewsManagementSystem.BusinessObject.genruntimeconfig.cache
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.BusinessObject\obj\Debug\net8.0\ref\FUNewsManagementSystem.BusinessObject.dll
