@@ -1,5 +1,6 @@
 ﻿using FUNewsManagementSystem.Services.IService;
 using FUNewsManagementSystem.WebRazorPage.ViewModels;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
@@ -70,10 +71,10 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.SystemAccounts
                 AccountRole = account.AccountRole
             };
 
-            return Page(); 
+            return Page();
         }
 
-        public IActionResult OnPost()
+        public async Task <IActionResult> OnPost()
         {
             ModelState.Remove("OldPassword");
             ModelState.Remove("NewPassword");
@@ -120,7 +121,19 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.SystemAccounts
                 existingAccount.AccountEmail = SystemAccount.NewAccountEmail;
             }
             _systemAccountService.UpdateSystemAccount(existingAccount);
+            var claims = new List<Claim>
+            {
+                 new Claim(ClaimTypes.Name, existingAccount.AccountName), // Cập nhật username mới
+                 new Claim(ClaimTypes.Email, existingAccount.AccountEmail),
+                 new Claim(ClaimTypes.Role, (existingAccount.AccountRole == 1) ? "Staff" : "Lecture")
+             };
+            // Tạo Identity mới với claims đã cập nhật
+            var identity = new ClaimsIdentity(claims, "Cookies");
+            var principal = new ClaimsPrincipal(identity);
 
+            // Đăng nhập lại user để cập nhật session
+            await HttpContext.SignOutAsync();
+            await HttpContext.SignInAsync(principal);
             TempData["SuccessMessage"] = "Profile updated successfully!";
             return RedirectToPage("SelfProfile");
         }
