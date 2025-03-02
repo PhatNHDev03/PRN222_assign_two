@@ -22,8 +22,8 @@ namespace FUNewsManagementSystem.DataAccess
             var r = _context.NewsArticles
                 .Include(n => n.Category)
                 .Include(n => n.Tags)
-                .Include(u => u.CreatedBy)
-                .OrderByDescending(o => o.NewsArticleId)
+                .Include(n => n.CreatedBy) 
+                .OrderByDescending(o => o.NewsArticleId) 
                 .ToList();
             return r;
         }
@@ -100,7 +100,18 @@ namespace FUNewsManagementSystem.DataAccess
                 }
             }
         }
+        public string GetUpdaterName(short? updatedById)
+        {
+            if (!updatedById.HasValue)
+            {
+                return "No Updater";
+            }
 
+            return _context.SystemAccounts
+                .Where(sa => sa.AccountId == updatedById.Value)
+                .Select(sa => sa.AccountName)
+                .FirstOrDefault() ?? "No Updater";
+        }
 
         public NewsArticle GetLastNewsArticle()
         {
@@ -161,6 +172,7 @@ namespace FUNewsManagementSystem.DataAccess
             listContaintCateId.ForEach(t => t.CategoryId = null);
             _context.SaveChanges();
         }
+
 
         public bool HasArticlesInCategory(int categoryId)
         {

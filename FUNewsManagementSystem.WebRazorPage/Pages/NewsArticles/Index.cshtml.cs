@@ -1,6 +1,5 @@
 using FUNewsManagementSystem.BusinessObject;
 using FUNewsManagementSystem.Services.IService;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles
@@ -11,16 +10,21 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles
 
         public IndexModel(INewsArticleService newsArticleService)
         {
-            _newsArticleService = newsArticleService;
+            _newsArticleService = newsArticleService ?? throw new ArgumentNullException(nameof(newsArticleService));
         }
 
-        public IList<NewsArticle> NewsArticles { get; set; }
+        public List<NewsArticle> NewsArticles { get; set; }
 
         public void OnGet()
         {
             NewsArticles = _newsArticleService.GetAllNewsArticles()
-                .OrderBy(n => int.TryParse(n.NewsArticleId, out int id) ? id : 0) // S?p x?p theo giá tr? s?
                 .ToList();
+        }
+
+        // Ph??ng th?c ?? l?y AccountName c?a SystemAccount d?a trên UpdatedById t? INewsArticleService
+        public string GetUpdaterName(short? updatedById)
+        {
+            return _newsArticleService.GetUpdaterName(updatedById);
         }
     }
 }

@@ -52,7 +52,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles
 
                 var newsArticle = new NewsArticle
                 {
-                    NewsArticleId = newId.ToString(), // Gán ID là chu?i s? t?ng d?n (1, 2, 3, ...)
+                    NewsArticleId = newId.ToString(), 
                     NewsTitle = NewsArticleViewModel.NewsTitle,
                     Headline = NewsArticleViewModel.Headline,
                     NewsContent = NewsArticleViewModel.NewsContent,
@@ -60,12 +60,12 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles
                     CategoryId = NewsArticleViewModel.CategoryID,
                     NewsStatus = NewsArticleViewModel.NewsStatus,
                     CreatedDate = DateTime.Now,
-                    CreatedById = 1, // Gi? s?, c?n l?y t? ng??i dùng hi?n t?i
+                    CreatedById = 1, 
                     ModifiedDate = null,
                     UpdatedById = null
                 };
 
-                if (NewsArticleViewModel.SelectedTags != null && NewsArticleViewModel.SelectedTags.Any())
+                if (NewsArticleViewModel.SelectedTags != null && NewsArticleViewModel.SelectedTags.Any())   
                 {
                     newsArticle.Tags = NewsArticleViewModel.SelectedTags
                         .Select(tagId => _tagService.GetTagById(tagId))
