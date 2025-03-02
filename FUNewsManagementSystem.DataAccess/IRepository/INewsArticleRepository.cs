@@ -26,5 +26,6 @@ namespace FUNewsManagementSystem.DataAccess.IRepository
         DateTime? LimitEndDate();
         void disableACateGoryId(short categoryId);
         public DateTime FirstCreateDate();
+        string GetUpdaterName(short? updatedById);
     }
 }

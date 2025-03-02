@@ -74,6 +74,10 @@ namespace FUNewsManagementSystem.Services
         {
             _newsArticleRepository.disableACateGoryId(categoryId);
         }
+        public string GetUpdaterName(short? updatedById)
+        {
+            return _newsArticleRepository.GetUpdaterName(updatedById);
+        }
 
         public DateTime FirstCreateDate()=>_newsArticleRepository.FirstCreateDate();
        
