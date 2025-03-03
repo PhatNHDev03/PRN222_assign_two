@@ -1,17 +1,20 @@
 using FUNewsManagementSystem.BusinessObject;
 using FUNewsManagementSystem.Services.IService;
+using FUNewsManagementSystem.WebRazorPage.Hubs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.SignalR;
 
 namespace FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles
 {
     public class DeleteModel : PageModel
     {
         private readonly INewsArticleService _newsArticleService;
-
-        public DeleteModel(INewsArticleService newsArticleService)
+        private readonly IHubContext<SignalrServer> _hubContext;
+        public DeleteModel(INewsArticleService newsArticleService,IHubContext<SignalrServer> hubContext)
         {
             _newsArticleService = newsArticleService;
+            _hubContext = hubContext;
         }
 
         [BindProperty]
@@ -41,7 +44,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles
         }
 
         // Khi Ajax POST ??n /NewsArticles/Delete?handler=Delete
-        public IActionResult OnPostDelete()
+        public async Task<IActionResult> OnPostDelete()
         {
             if (string.IsNullOrEmpty(NewsArticleId))
             {
@@ -50,6 +53,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles
             try
             {
                 _newsArticleService.DeleteNewsArticle(NewsArticleId);
+                await _hubContext.Clients.All.SendAsync("LoadAllNewArticles");
                 return new JsonResult(new { success = true, message = "News article deleted successfully!" });
             }
             catch (Exception ex)

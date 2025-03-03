@@ -1,5 +1,6 @@
 ﻿using FUNewsManagementSystem.BusinessObject;
 using FUNewsManagementSystem.DataAccess.IRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,9 +36,26 @@ namespace FUNewsManagementSystem.DataAccess
 
         public void UpdateCategory(Category category)
         {
-            _context.Categories.Update(category);
-            _context.SaveChanges();
+            var existingCategory = _context.Categories
+                .Include(c => c.NewsArticles) // Tải danh sách bài báo liên kết
+                .FirstOrDefault(c => c.CategoryId == category.CategoryId);
+
+            if (existingCategory != null)
+            {
+                if (category.IsActive == false) // Kiểm tra trạng thái mới
+                {
+                    foreach (var news in existingCategory.NewsArticles)
+                    {
+                        news.CategoryId = null;
+                    }
+                }
+
+                // Cập nhật dữ liệu mới từ category vào existingCategory
+                _context.Entry(existingCategory).CurrentValues.SetValues(category);
+                _context.SaveChanges();
+            }
         }
+
 
         public void DeleteCategory(short id)
         {

@@ -12,7 +12,7 @@
         @if (User.IsInRole("Staff"))
         {
             <a asp-page="/NewsArticles/Index" class="btn btn-primary">News Management</a>
-            <a asp-page="/Category/Index" class="btn btn-secondary">Category Management</a>
+            <a asp-page="/Categories/Index" class="btn btn-secondary">Category Management</a>
             <a asp-page="/Tags/Index" class="btn btn-success">Tag Management</a>
             <a asp-page="/NewsArticle/MyNewArticle"class="btn btn-warning">My News</a>
         }
@@ -100,3 +100,5 @@ else
 {
     <p class="alert alert-info">There are no articles to display.</p>
 }
+<script src="~/js//microsoft/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/site.js"></script>

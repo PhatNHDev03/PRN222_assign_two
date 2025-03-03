@@ -11,7 +11,12 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/signalRServer").bu
 connection.on("LoadAllTags", function(){
     location.href = '/Tags/Index';
 });
-
+connection.on("LoadAllNewArticles", function () {
+    location.href = '/NewsArticles/Index';
+});
+/*connection.on("LoadHomePage", function () {
+    location.href = '/Index';
+});*/
 
 connection.start().catch(function (err) {
     return console.error(err.toString());

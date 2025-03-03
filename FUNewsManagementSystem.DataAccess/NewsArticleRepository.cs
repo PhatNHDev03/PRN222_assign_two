@@ -64,8 +64,8 @@ namespace FUNewsManagementSystem.DataAccess
 
         public void DeleteNewsArticle(string id)
         {
-            var newsArticle = _context.NewsArticles.Include(x=>x.Tags).FirstOrDefault(x=>x.NewsArticleId==id);
-           
+            var newsArticle = _context.NewsArticles.Include(x => x.Tags).FirstOrDefault(x => x.NewsArticleId == id);
+
 
             if (newsArticle != null)
             {
@@ -81,9 +81,16 @@ namespace FUNewsManagementSystem.DataAccess
                 .OrderByDescending(n => n.NewsArticleId)
                 .FirstOrDefault();
         }
-        public string LastId() => _context.NewsArticles
-                .OrderByDescending(n => n.NewsArticleId)
-                .FirstOrDefault().NewsArticleId as string;
+        public string LastId(){
+            var list = _context.NewsArticles.ToList();
+            int max = 0;
+            foreach (var item in list) {
+                if (int.Parse(item.NewsArticleId.Trim())>=max) {
+                    max = int.Parse(item.NewsArticleId.Trim());
+                }
+            }
+            return max + "";
+        }
         public List<NewsArticle> GetArticlesByCategory(int categoryId)
         {
             return _context.NewsArticles.Where(n => n.CategoryId == categoryId).ToList();

@@ -2,6 +2,7 @@ using FUNewsManagementSystem.BusinessObject;
 using FUNewsManagementSystem.Services.IService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Security.Claims;
 
 namespace FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles
 {
@@ -18,8 +19,12 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles
 
         public IActionResult OnGet()
         {
-            NewsArticles = _newsArticleService.GetAllNewsArticles()
-                .ToList();
+            var user = User.FindFirstValue(ClaimTypes.Role);
+            if (user != "Staff") {
+                return RedirectToPage("/Index");
+            }
+            NewsArticles = _newsArticleService.GetAllNewsArticles().OrderByDescending(x => int.Parse(x.NewsArticleId))
+               .ToList();
             return Page();
         }
 

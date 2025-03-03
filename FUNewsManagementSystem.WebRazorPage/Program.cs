@@ -2,6 +2,7 @@
 using FUNewsManagementSystem.DataAccess.IRepository;
 using FUNewsManagementSystem.Services;
 using FUNewsManagementSystem.Services.IService;
+using FUNewsManagementSystem.WebRazorPage.Hubs;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 

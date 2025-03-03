@@ -34,7 +34,7 @@
     <div class="mb-3">
         <label class="form-label">Category</label>
         <select asp-for="NewsArticle.CategoryId" class="form-select">
-            @foreach (var category in Model.Categories)
+            @foreach (var category in Model.Categories.Where(x => x.IsActive == true))
             {
                 <option value="@category.CategoryId">@category.CategoryName</option>
             }

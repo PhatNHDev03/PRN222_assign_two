@@ -1,6 +1,7 @@
 using FUNewsManagementSystem.BusinessObject;
 using FUNewsManagementSystem.Services;
 using FUNewsManagementSystem.Services.IService;
+using FUNewsManagementSystem.WebRazorPage.Hubs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.SignalR;

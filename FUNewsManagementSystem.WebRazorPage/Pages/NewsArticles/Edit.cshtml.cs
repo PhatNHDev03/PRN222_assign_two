@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Linq;
 using System.Collections.Generic;
 using System.Security.Claims;
+using Microsoft.AspNetCore.SignalR;
+using FUNewsManagementSystem.WebRazorPage.Hubs;
 
 namespace FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles
 {
@@ -14,12 +16,13 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles
         private readonly INewsArticleService _newsArticleService;
         private readonly ICategoryService _categoryService;
         private readonly ITagService _tagService;
-
-        public EditModel(INewsArticleService newsArticleService, ICategoryService categoryService, ITagService tagService)
+        private readonly IHubContext<SignalrServer> _hubContext;
+        public EditModel(INewsArticleService newsArticleService, ICategoryService categoryService, ITagService tagService, IHubContext<SignalrServer>hubContext)
         {
             _newsArticleService = newsArticleService;
             _categoryService = categoryService;
             _tagService = tagService;
+            _hubContext = hubContext;
         }
 
         public NewsArticle NewsArticle { get; set; }
@@ -38,13 +41,13 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles
             NewsArticle = article;
             SelectedTags = article.Tags?.Select(t => t.TagId).ToList() ?? new List<int>();
 
-            Categories = _categoryService.getAllValidCategory().ToList();
+            Categories = _categoryService.getAllValidCategory().Where(x=>x.IsActive==true).ToList();
             Tags = _tagService.GetAllTags().ToList();
         
             return Page();
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPost()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (!ModelState.IsValid)
@@ -74,7 +77,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles
 
             // Lưu dữ liệu vào database
             _newsArticleService.UpdateNewsArticle(existingArticle);
-
+            await _hubContext.Clients.All.SendAsync("LoadAllNewArticles");
        
             return  RedirectToPage("Index");
         }

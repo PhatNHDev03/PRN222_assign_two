@@ -23,7 +23,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Home
 
         public void OnGet()
         {
-            Articles = _newsArticleService.GetAllNewsArticlesWithDetails()
+            Articles = _newsArticleService.GetAllNewsArticlesWithDetails().OrderByDescending(x=>int.Parse(x.NewsArticleId))
                                           .ToList();
 
             RandomArticle = Articles.OrderBy(a => Guid.NewGuid()).FirstOrDefault();
