@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 353,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
@@ -51,8 +51,7 @@
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAA0AAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-03-03T07:55:39.185Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -79,6 +78,10 @@
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Delete.cshtml.cs",
@@ -101,8 +104,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\Pages\\NewsArticles\\Index.cshtml.cs",
               "ViewState": "AQIAAAUAAAAAAAAAAIAywBQAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T08:56:13.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-03T08:56:13.692Z"
             },
             {
               "$type": "Document",
@@ -114,8 +116,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\Pages\\NewsArticles\\Create.cshtml.cs",
               "ViewState": "AQIAADoAAAAAAAAAAAAUwEcAAABLAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T08:55:32.964Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-03T08:55:32.964Z"
             },
             {
               "$type": "Document",
@@ -127,8 +128,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\Pages\\NewsArticles\\Edit.cshtml.cs",
               "ViewState": "AQIAAD0AAAAAAAAAAAAIwEIAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T08:53:53.679Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-03T08:53:53.679Z"
             },
             {
               "$type": "Document",
@@ -140,8 +140,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\Pages\\NewsArticles\\Edit.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-03T08:53:51.833Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-03T08:53:51.833Z"
             },
             {
               "$type": "Document",
@@ -153,8 +152,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\Pages\\NewsArticles\\Index.cshtml",
               "ViewState": "AQIAAIcAAAAAAAAAAAAAAM0AAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-03T08:43:17.537Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-03T08:43:17.537Z"
             }
           ]
         },
