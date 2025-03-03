@@ -72,7 +72,7 @@ This project follows the **Three-Layer Architecture** pattern:
 📁 FUNewsManagementSystem
 │── 📂 FUNewsManagementSystem.BusinessObjects  # Entity and domain models
 │── 📂 FUNewsManagementSystem.DataAccess       # Database access layer
-│── 📂 FUNewsManagementSystem.Services         # Business logic layer
+│── 📂 FUNewsManagementSystem.Business         # Business logic layer
 │── 📂 FUNewsManagementSystem.WebRazorPage     # Presentation layer (Razor Pages)
 │── appsettings.json
 │── Program.cs
