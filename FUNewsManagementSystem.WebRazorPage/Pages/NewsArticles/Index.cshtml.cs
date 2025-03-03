@@ -1,4 +1,5 @@
 using FUNewsManagementSystem.BusinessObject;
+using FUNewsManagementSystem.BusinessObject.Pagination;
 using FUNewsManagementSystem.Services.IService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -16,15 +17,17 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles
         }
 
         public List<NewsArticle> NewsArticles { get; set; }
-
-        public IActionResult OnGet()
+        public Pager Pager { get; set; }
+        public IActionResult OnGet(int pg =1)
         {
             var user = User.FindFirstValue(ClaimTypes.Role);
             if (user != "Staff") {
                 return RedirectToPage("/Index");
             }
-            NewsArticles = _newsArticleService.GetAllNewsArticles().OrderByDescending(x => int.Parse(x.NewsArticleId))
-               .ToList();
+            int pageSize = 5;
+            var (listPagination, TotalItems) = _newsArticleService.findALlWithPagination(pg, pageSize);
+            Pager = new Pager(TotalItems,pg,pageSize);
+            NewsArticles = listPagination;
             return Page();
         }
 

@@ -22,7 +22,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Tags
 
         public void OnGet(int pg=1)
         {
-            int pageSize = 10;
+            int pageSize = 5;
             var (TagsAll, TotalItem) = _tagService.findALlWithPagination(pg, pageSize);
             Pager = new Pager(TotalItem,pg,pageSize);
             Tags = TagsAll;

@@ -15,5 +15,6 @@ namespace FUNewsManagementSystem.DataAccess.IRepository
         public void UpdateCategory(Category category);
         public void DeleteCategory(short id);
         public List<Category> getAllValidCategory();
+        (List<Category>, int totalItems) findALlWithPagination(int pg, int pageSize);
     }
 }

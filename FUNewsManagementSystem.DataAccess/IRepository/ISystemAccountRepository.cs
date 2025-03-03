@@ -27,6 +27,7 @@ namespace FUNewsManagementSystem.DataAccess.IRepository
         (List<SystemAccount>, int totalItems) findALlWithPagination(int pg, int pageSize);
         bool ValidatePassword(string email, string password);
         void ChangePassword(string email, string newPassword);
+
     }
 
 }

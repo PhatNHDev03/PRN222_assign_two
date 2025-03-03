@@ -1,4 +1,5 @@
 ﻿using FUNewsManagementSystem.BusinessObject;
+using FUNewsManagementSystem.BusinessObject.Pagination;
 using FUNewsManagementSystem.DataAccess.IRepository;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -67,6 +68,19 @@ namespace FUNewsManagementSystem.DataAccess
             }
         }
         public List<Category> getAllValidCategory() => _context.Categories.Where(x => x.IsActive == true).OrderByDescending(o => o.CategoryId).ToList();
+        public (List<Category>, int totalItems) findALlWithPagination(int pg, int pageSize)
+        {
+            var list = _context.Categories.OrderByDescending(x => x.CategoryId).ToList();
 
+            if (pg == 1)
+            {
+                pg = 1;
+            }
+            int resCount = list.Count();
+            var pager = new Pager(resCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+            var data = list.Skip(recSkip).Take(pager.Pagesize).ToList();
+            return (data, resCount);
+        }
     }
 }

@@ -15,5 +15,6 @@ namespace FUNewsManagementSystem.Services.IService
         void UpdateCategory(Category category);
         void DeleteCategory(short id);
         List<Category> getAllValidCategory();
+        (List<Category>, int totalItems) findALlWithPagination(int pg, int pageSize);
     }
 }

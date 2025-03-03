@@ -1,4 +1,5 @@
 ﻿using FUNewsManagementSystem.BusinessObject;
+using FUNewsManagementSystem.BusinessObject.Pagination;
 using FUNewsManagementSystem.DataAccess.IRepository;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -42,6 +43,14 @@ namespace FUNewsManagementSystem.DataAccess
             return _context.NewsArticles.Include(n => n.Tags).Include(n => n.Category)
                 .FirstOrDefault(n => n.NewsArticleId == id);
         }
+        public List<NewsArticle> getAllNewByStaffId(short id)
+        {
+            var r = _context.NewsArticles.Where(a => a.NewsStatus == true && a.CreatedById == id)
+              .Include(n => n.Category).Include(n => n.Tags).Include(u => u.CreatedBy)
+
+            .OrderByDescending(o => o.NewsArticleId).ToList();
+            return r;
+        }
 
         public void AddNewsArticle(NewsArticle newsArticle)
         {
@@ -81,11 +90,14 @@ namespace FUNewsManagementSystem.DataAccess
                 .OrderByDescending(n => n.NewsArticleId)
                 .FirstOrDefault();
         }
-        public string LastId(){
+        public string LastId()
+        {
             var list = _context.NewsArticles.ToList();
             int max = 0;
-            foreach (var item in list) {
-                if (int.Parse(item.NewsArticleId.Trim())>=max) {
+            foreach (var item in list)
+            {
+                if (int.Parse(item.NewsArticleId.Trim()) >= max)
+                {
                     max = int.Parse(item.NewsArticleId.Trim());
                 }
             }
@@ -144,10 +156,10 @@ namespace FUNewsManagementSystem.DataAccess
 
         public List<NewsArticle> GetAllNewsArticlesByUserId(short userId)
         {
-           return  _context.NewsArticles.Where(x => x.CreatedById == userId).
-            Include(x => x.Tags).Include(c => c.Category).ToList();
+            return _context.NewsArticles.Where(x => x.CreatedById == userId).
+             Include(x => x.Tags).Include(c => c.Category).ToList();
         }
-        public DateTime FirstCreateDate ()=> (DateTime) _context.NewsArticles
+        public DateTime FirstCreateDate() => (DateTime)_context.NewsArticles
             .OrderBy(x => x.CreatedDate).FirstOrDefault().CreatedDate;
 
         public string GetUpdaterName(short? updatedById)
@@ -161,6 +173,31 @@ namespace FUNewsManagementSystem.DataAccess
                 .Where(sa => sa.AccountId == updatedById.Value)
                 .Select(sa => sa.AccountName)
                 .FirstOrDefault() ?? "No Updater";
+        }
+        public (List<NewsArticle>, int totalItems) findALlWithPagination(int pg, int pageSize)
+        {
+            var list = _context.NewsArticles.Include(x => x.Tags).Include(x=>x.CreatedBy).Include(x=>x.Category)
+                .AsEnumerable() // Chuyển dữ liệu về bộ nhớ trước khi parse
+                  .OrderByDescending(x => int.Parse(x.NewsArticleId))
+                 .ToList();
+            if (pg == 1)
+            {
+                pg = 1;
+            }
+            int resCount = list.Count();
+            var pager = new Pager(resCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+            var data = list.Skip(recSkip).Take(pager.Pagesize).ToList();
+            return (data, resCount);
+        }
+
+        public NewsArticle getNewShowDetailById(string id)
+        {
+            var r = _context.NewsArticles.Where(a=>a.NewsArticleId.Equals(id))
+              .Include(n => n.Category).Include(n => n.Tags).Include(u => u.CreatedBy)
+
+            .OrderByDescending(o => o.NewsArticleId).FirstOrDefault();
+            return r;
         }
     }
 }

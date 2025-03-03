@@ -80,5 +80,7 @@ namespace FUNewsManagementSystem.Services
         {
             _systemAccountRepository.ChangePassword(email, newPassword);
         }
+
+        
     }
 }

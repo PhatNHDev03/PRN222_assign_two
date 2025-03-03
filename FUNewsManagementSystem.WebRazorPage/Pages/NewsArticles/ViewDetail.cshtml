@@ -1,0 +1,74 @@
+﻿@page "{id?}"
+@model FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles.ViewDetailModel
+@{
+    Layout = null;
+}
+
+<h2>News Article Details</h2>
+
+<form method="post" id="viewDetailForm">
+    <div class="mb-3">
+        <label class="form-label">Article ID</label>
+        <input type="text" class="form-control" value="@Model.NewsArticle.NewsArticleId" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input type="text" class="form-control" value="@Model.NewsArticle.NewsTitle" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Headline</label>
+        <input type="text" class="form-control" value="@Model.NewsArticle.Headline" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Content</label>
+        <textarea class="form-control" rows="5" readonly>@Model.NewsArticle.NewsContent</textarea>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Source</label>
+        <input type="text" class="form-control" value="@Model.NewsArticle.NewsSource" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Category</label>
+        <input type="text" class="form-control" value="@Model.NewsArticle.Category?.CategoryName" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Tags</label>
+        <input type="text" class="form-control"
+               value="@(string.Join(", ", Model.NewsArticle.Tags?.Select(t => t.TagName) ?? new List<string>()))"
+               readonly />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Created By</label>
+        <input type="text" class="form-control" value="@Model.NewsArticle.CreatedBy?.AccountName" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Created Date</label>
+        <input type="text" class="form-control" 
+               value="@Model.NewsArticle.CreatedDate?.ToString("yyyy-MM-dd HH:mm:ss")" readonly />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Updated By</label>
+        <input type="text" class="form-control" value="@Model.SystemAccount.AccountName" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Last Modified Date</label>
+        <input type="text" class="form-control"
+               value="@Model.NewsArticle.ModifiedDate?.ToString("yyyy-MM-dd HH:mm:ss")" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Status</label>
+        <input type="text" class="form-control"
+               value="@(Model.NewsArticle.NewsStatus == true ? "Active" : "Inactive")" readonly />
+    </div>
+
+</form>

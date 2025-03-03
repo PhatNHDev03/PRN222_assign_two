@@ -14,13 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FUNewsManagementSystem.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+47120779a22e261d1b4c16e65464b2385bf76493")]
-||||||| 0d0dc4b
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ff38c19ed3affc515bd0f27efe4a3814b329dda")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf75bfaa2d370bf27bcb5e25277a8f8c8f5728be")]
->>>>>>> thanh-selfprofile
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+32a6affc4ac391f049792cfcd095a1f71a0f7226")]
 [assembly: System.Reflection.AssemblyProductAttribute("FUNewsManagementSystem.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FUNewsManagementSystem.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

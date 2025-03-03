@@ -1,0 +1,41 @@
+﻿@page
+@model FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles.MyNewArticleModel
+
+<h3 class="mt-4">List Articles</h3>
+
+@if (Model.Articles != null && Model.Articles.Any())
+{
+    @foreach (var article in Model.Articles)
+    {
+        <div class="card mt-4 shadow-sm">
+            <div class="card-body">
+                <div class="p-3 bg-light rounded">
+                    <h2 class="card-title fw-bold text-dark">@article.NewsTitle</h2>
+                    <h4 class="card-subtitle text-muted">@article.Headline</h4>
+                    @if (article.Category != null)
+                    {
+                        <h5 class="card-subtitle text-primary my-4">Category: @article.Category.CategoryName</h5>
+                    }
+                </div>
+                <h6 class="text-danger">
+                    Tags:
+                    @if (article.Tags != null && article.Tags.Any())
+                    {
+                        var tags = article.Tags.Select(t => t.TagName).ToList();
+                        @for (int i = 0; i < tags.Count; i++)
+                        {
+                            <span class="text-danger">@tags[i]</span>
+                            <span class="text-danger">@(i < tags.Count() - 1 ? "," : "")</span>
+                        }
+                    }
+                </h6>
+                <p class="card-text mt-3">@article.NewsContent</p>
+                <small class="text-secondary">🕒 Created on: @article.CreatedDate?.ToString("dd/MM/yyyy")</small>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <p class="alert alert-info">There are no articles to display.</p>
+}

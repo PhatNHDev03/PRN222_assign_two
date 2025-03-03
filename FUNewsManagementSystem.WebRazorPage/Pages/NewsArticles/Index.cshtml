@@ -81,7 +81,7 @@
 </p>
 
 <!-- Bảng hiển thị danh sách bài viết, giữ nguyên logic dữ liệu -->
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped ">
     <thead class="table-dark">
         <tr class="text-center">
             <th>ID</th>
@@ -102,11 +102,11 @@
     <tbody>
         @foreach (var article in Model.NewsArticles)
         {
-            <tr>
+            <tr class="text-center">
                 <td>@article.NewsArticleId</td>
                 <td>@article.NewsTitle</td>
                 <td>@article.Headline</td>
-                <td class="content-column">@article.NewsContent</td>
+                <td class="content-column " >@article.NewsContent</td>
                 <td>@article.NewsSource</td>
                 <td>@article.CreatedDate?.ToString("yyyy-MM-dd")</td>
                 <td>@(article.Category?.CategoryName ?? "N/A")</td>
@@ -129,6 +129,9 @@
                 <td>@(article.NewsStatus == true ? "Active" : "Inactive")</td>
                 <td class="">
                    <div class="d-flex justify-content-center align-items-center gap-3">
+                        <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#viewModal" onclick="loadViewForm('@article.NewsArticleId')">
+                            View
+                        </button>
                         <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal" onclick="loadEditForm('@article.NewsArticleId')">
                             Edit
                         </button>
@@ -141,6 +144,55 @@
         }
     </tbody>
 </table>
+@if (Model.Pager.TotalPages > 0)
+{
+
+    <ul class="pagination justify-content-end">
+        @if (Model.Pager.CurrentPage > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-page="/NewsArticles/Index" asp-route-pg="@(Model.Pager.StartPage)">First</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" asp-page="/NewsArticles/Index" asp-route-pg="@(Model.Pager.CurrentPage-1)">Previous</a>
+            </li>
+
+        }
+        @for (var pge = Model.Pager.StartPage; pge <= Model.Pager.EndPage; pge++)
+        {
+            <li class="page-item  @(pge == Model.Pager.CurrentPage? "active": "")">
+                <a class="page-link" asp-page="/NewsArticles/Index" asp-route-pg="@pge">@pge</a>
+            </li>
+        }
+        @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-page="/NewsArticles/Index" asp-route-pg="@(Model.Pager.CurrentPage+1)">Next</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" asp-page="/NewsArticles/Index" asp-route-pg="@(Model.Pager.TotalPages)">Last</a>
+            </li>
+        }
+    </ul>
+}
+<!-- Modal cho View -->
+<div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewModalLabel">View News Article</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="viewModalBody">
+                <!-- Nội dung form sẽ được load động qua AJAX -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- Modal cho Edit, giữ nguyên chức năng -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
@@ -207,6 +259,16 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        function loadViewForm(articleId) {
+            fetch(`/NewsArticles/ViewDetail?id=${articleId}`)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('viewModalBody').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading edit form:', error));
+        }
+
+
         // Load form edit, giữ nguyên chức năng
         function loadEditForm(articleId) {
             fetch(`/NewsArticles/Edit?id=${articleId}`)
@@ -299,7 +361,7 @@
 }
 <style>
     .content-column {
-        max-width: 200px;
+        max-width: 300px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

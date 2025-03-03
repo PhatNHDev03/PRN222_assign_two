@@ -44,5 +44,10 @@ namespace FUNewsManagementSystem.Services
             _categoryRepository.DeleteCategory(id);
         }
         public List<Category> getAllValidCategory() => _categoryRepository.getAllValidCategory();
+
+        public (List<Category>, int totalItems) findALlWithPagination(int pg, int pageSize)
+        {
+            return _categoryRepository.findALlWithPagination(pg, pageSize);
+        }
     }
 }

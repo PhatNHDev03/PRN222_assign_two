@@ -26,5 +26,7 @@ namespace FUNewsManagementSystem.DataAccess.IRepository
         void disableACateGoryId(short categoryId);
         public DateTime FirstCreateDate();
         string GetUpdaterName(short? updatedById);
+        (List<NewsArticle>, int totalItems) findALlWithPagination(int pg, int pageSize);
+        NewsArticle getNewShowDetailById(string id);
     }
 }

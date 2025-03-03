@@ -82,5 +82,20 @@ namespace FUNewsManagementSystem.Services
         {
             return _newsArticleRepository.GetUpdaterName(updatedById);
         }
+
+        public List<NewsArticle> getAllNewByStaffId(short id)
+        {
+            return _newsArticleRepository.GetAllNewsArticlesByUserId((short)id);
+        }
+
+        public (List<NewsArticle>, int totalItems) findALlWithPagination(int pg, int pageSize)
+        {
+            return _newsArticleRepository.findALlWithPagination(pg, pageSize);
+        }
+
+        public NewsArticle getNewShowDetailById(string id)
+        {
+            return _newsArticleRepository.getNewShowDetailById(id);
+        }
     }
 }

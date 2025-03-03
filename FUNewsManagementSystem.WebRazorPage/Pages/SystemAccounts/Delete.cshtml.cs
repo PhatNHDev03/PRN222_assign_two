@@ -43,8 +43,8 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.SystemAccounts
                 TempData["ErrorMessage"] = "Account not found!";
                 return RedirectToPage("Index");
             }
-            account.Status = false;
-            _systemAccountService.UpdateSystemAccount(account);
+
+            _systemAccountService.deleteByObject(account);
             TempData["SuccessMessage"] = "Account deleted successfully!";
             return RedirectToPage("Index");
         }
