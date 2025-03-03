@@ -43,47 +43,6 @@ namespace FUNewsManagementSystem.Services
 
         public SystemAccount IsExistEmail(string accountEmail) => _systemAccountRepository.IsExistEmail(accountEmail);
 
-        //Profile
-        public SystemAccount GetProfileByEmail(string email)
-        {
-            return _systemAccountRepository.IsExistEmail(email);
-        }
-
-        public bool ValidateOldPassword(string email, string oldPassword)
-        {
-            var account = _systemAccountRepository.IsExistEmail(email);
-            return account != null && account.AccountPassword == oldPassword;
-        }
-
-        public bool UpdateProfile(string email, string newEmail, string accountName, string newPassword)
-        {
-            var account = _systemAccountRepository.IsExistEmail(email);
-            if (account == null) return false;
-
-            Console.WriteLine($"Before Update - Email: {account.AccountEmail}, Password: {account.AccountPassword}");
-
-            if (!string.IsNullOrEmpty(newEmail)) account.AccountEmail = newEmail;
-            if (!string.IsNullOrEmpty(accountName)) account.AccountName = accountName;
-            if (!string.IsNullOrEmpty(newPassword))
-            {
-                Console.WriteLine($"Updating Password: {newPassword}");
-                account.AccountPassword = newPassword;
-            }
-
-            _systemAccountRepository.UpdateSystemAccount(account);
-            Console.WriteLine($"After Update - Email: {account.AccountEmail}, Password: {account.AccountPassword}");
-            return true;
-        }
-        public bool UpdatePassword(string email, string newPassword)
-        {
-            var account = _systemAccountRepository.IsExistEmail(email);
-            if (account == null) return false;
-
-            account.AccountPassword = newPassword; 
-            _systemAccountRepository.UpdateSystemAccount(account);
-            return true;
-        }
-
 
         List<SystemAccount> ISystemAccountService.findAllWithArticles()
         {
@@ -110,6 +69,16 @@ namespace FUNewsManagementSystem.Services
         public (List<SystemAccount>, int totalItems) findALlWithPagination(int pg, int pageSize)
         {
             return _systemAccountRepository.findALlWithPagination(pg,  pageSize);
+        }
+
+        public bool ValidatePassword(string email, string password)
+        {
+            return _systemAccountRepository.ValidatePassword(email, password); 
+        }
+
+        public void ChangePassword(string email, string newPassword)
+        {
+            _systemAccountRepository.ChangePassword(email, newPassword);
         }
     }
 }

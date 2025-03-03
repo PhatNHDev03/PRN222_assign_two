@@ -110,6 +110,30 @@ namespace FUNewsManagementSystem.DataAccess
             var data = list.Skip(recSkip).Take(pager.Pagesize).ToList();
             return (data,resCount);
         }
+
+        //Kiểm tra pass
+        public bool ValidatePassword(string email, string password)
+        {
+            var account = _context.SystemAccounts.FirstOrDefault(a => a.AccountEmail == email);
+            Console.WriteLine($"Validating password for email: {email}, provided password: {password}, stored password: {account?.AccountPassword}");
+            if (account == null)
+            {
+                return false; // Account not found
+            }
+
+            return account.AccountPassword == password; // Check if the password matches
+        }
+        public void ChangePassword(string email, string newPassword)
+        {
+            var account = IsExistEmail(email);
+            if (account != null)
+            {
+                // Hash the new password and update the account
+                account.AccountPassword = newPassword; 
+                _context.SystemAccounts.Update(account);
+                _context.SaveChanges();
+            }
+        }
     }
 
 }

@@ -25,6 +25,8 @@ namespace FUNewsManagementSystem.DataAccess.IRepository
         SystemAccount FindAllWithArticlesById(short id);
          SystemAccount FindAllWithArticlesByIdWithDate(short id, DateTime startDate, DateTime endDate);
         (List<SystemAccount>, int totalItems) findALlWithPagination(int pg, int pageSize);
+        bool ValidatePassword(string email, string password);
+        void ChangePassword(string email, string newPassword);
     }
 
 }

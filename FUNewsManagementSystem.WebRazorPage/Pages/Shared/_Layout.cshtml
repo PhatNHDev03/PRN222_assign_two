@@ -29,10 +29,13 @@
                         </ul>
                     </div>
                </div>
-               <div>
+               <div class= "d-flex justify-content-between align-items-center gap-5">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <p>Welcome, @User.Identity.Name!</p>
+                        <div>
+                            <p class="mb-0">Welcome, @User.Identity.Name!</p>
+                            <a class="nav-link text-primary ms-lg-0" asp-area="" asp-page="/systemAccounts/SelfProfile">Your Profile</a>
+                        </div>
                         <a href="/SystemAccounts/Logout" class="btn btn-danger">Logout</a>
                     }
                     else
