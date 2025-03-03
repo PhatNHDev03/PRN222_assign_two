@@ -78,6 +78,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.SystemAccounts
             // Gán quyền và thông tin user
             claims = new List<Claim>
     {
+                new Claim(ClaimTypes.NameIdentifier,user.AccountId.ToString()),
         new Claim(ClaimTypes.Name, user.AccountName),
         new Claim(ClaimTypes.Email, user.AccountEmail),
         new Claim(ClaimTypes.Role,( user.AccountRole==1)?"Staff":"Lecture")

@@ -17,6 +17,16 @@ namespace FUNewsManagementSystem.DataAccess
         {
             _context = context;
         }
+        public List<NewsArticle> GetAllNewsArticles()
+        {
+            var r = _context.NewsArticles
+                .Include(n => n.Category)
+                .Include(n => n.Tags)
+                .Include(n => n.CreatedBy)
+                .OrderByDescending(o => o.NewsArticleId)
+                .ToList();
+            return r;
+        }
 
         public List<NewsArticle> GetAllNewsArticlesWithDetails()
         {
@@ -54,10 +64,13 @@ namespace FUNewsManagementSystem.DataAccess
 
         public void DeleteNewsArticle(string id)
         {
-            var newsArticle = _context.NewsArticles.Find(id);
+            var newsArticle = _context.NewsArticles.Include(x=>x.Tags).FirstOrDefault(x=>x.NewsArticleId==id);
+           
+
             if (newsArticle != null)
             {
-
+                newsArticle.Tags = null;
+                _context.SaveChanges();
                 _context.NewsArticles.Remove(newsArticle);
                 _context.SaveChanges();
             }
@@ -128,6 +141,19 @@ namespace FUNewsManagementSystem.DataAccess
             Include(x => x.Tags).Include(c => c.Category).ToList();
         }
         public DateTime FirstCreateDate ()=> (DateTime) _context.NewsArticles
-            .OrderBy(x => x.CreatedDate).FirstOrDefault().CreatedDate;   
+            .OrderBy(x => x.CreatedDate).FirstOrDefault().CreatedDate;
+
+        public string GetUpdaterName(short? updatedById)
+        {
+            if (!updatedById.HasValue)
+            {
+                return "No Updater";
+            }
+
+            return _context.SystemAccounts
+                .Where(sa => sa.AccountId == updatedById.Value)
+                .Select(sa => sa.AccountName)
+                .FirstOrDefault() ?? "No Updater";
+        }
     }
 }

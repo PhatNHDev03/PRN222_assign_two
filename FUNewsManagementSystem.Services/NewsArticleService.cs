@@ -72,6 +72,15 @@ namespace FUNewsManagementSystem.Services
         }
 
         public DateTime FirstCreateDate()=>_newsArticleRepository.FirstCreateDate();
-       
+
+        public List<NewsArticle> GetAllNewsArticles()
+        {
+            return _newsArticleRepository.GetAllNewsArticles();
+        }
+
+        public string GetUpdaterName(short? updatedById)
+        {
+            return _newsArticleRepository.GetUpdaterName(updatedById);
+        }
     }
 }

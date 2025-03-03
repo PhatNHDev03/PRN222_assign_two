@@ -1,39 +1,33 @@
 ﻿@page
-@model FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles.EditModel
+@model FUNewsManagementSystem.WebRazorPage.Pages.NewsArticles.CreateModel
 @{
     Layout = null;
 }
-
-<form method="post" id="editForm" asp-page="Edit" class="p-3">
-    <input type="hidden" asp-for="NewsArticle.NewsArticleId" />
-
+<form method="post" id="createForm" asp-page="Create" class="p-3">
     <div class="mb-3">
-        <label class="form-label">Title</label>
-        <input asp-for="NewsArticle.NewsTitle" class="form-control" required />
+        <label for="NewsArticle_NewsTitle" class="form-label">Title</label>
+        <input id="NewsArticle_NewsTitle" asp-for="NewsArticle.NewsTitle" class="form-control" required />
         <span asp-validation-for="NewsArticle.NewsTitle" class="text-danger"></span>
     </div>
-
     <div class="mb-3">
-        <label class="form-label">Headline</label>
-        <input asp-for="NewsArticle.Headline" class="form-control" required />
+        <label for="NewsArticle_Headline" class="form-label">Headline</label>
+        <input id="NewsArticle_Headline" asp-for="NewsArticle.Headline" class="form-control" required />
         <span asp-validation-for="NewsArticle.Headline" class="text-danger"></span>
     </div>
-
     <div class="mb-3">
-        <label class="form-label">Content</label>
-        <textarea asp-for="NewsArticle.NewsContent" class="form-control"></textarea>
+        <label for="NewsArticle_NewsContent" class="form-label">Content</label>
+        <textarea id="NewsArticle_NewsContent" asp-for="NewsArticle.NewsContent" class="form-control" rows="5"></textarea>
         <span asp-validation-for="NewsArticle.NewsContent" class="text-danger"></span>
     </div>
-
     <div class="mb-3">
-        <label class="form-label">News Source</label>
-        <input asp-for="NewsArticle.NewsSource" class="form-control" />
+        <label for="NewsArticle_NewsSource" class="form-label">Source</label>
+        <input id="NewsArticle_NewsSource" asp-for="NewsArticle.NewsSource" class="form-control" />
         <span asp-validation-for="NewsArticle.NewsSource" class="text-danger"></span>
     </div>
-
     <div class="mb-3">
-        <label class="form-label">Category</label>
-        <select asp-for="NewsArticle.CategoryId" class="form-select">
+        <label for="NewsArticle_CategoryId" class="form-label">Category</label>
+        <select id="NewsArticle_CategoryId" asp-for="NewsArticle.CategoryId" class="form-select" required>
+            <option value="">-- Select Category --</option>
             @foreach (var category in Model.Categories)
             {
                 <option value="@category.CategoryId">@category.CategoryName</option>
@@ -48,16 +42,14 @@
             @foreach (var tag in Model.Tags)
             {
                 <div class="form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input"
-                           name="SelectedTags"
-                           value="@tag.TagId"
-                           id="tag_@tag.TagId"
-                    @(Model.SelectedTags.Contains(tag.TagId) ? "checked" : null) />
+                    <input type="checkbox" class="form-check-input" name="SelectedTags"
+                           value="@tag.TagId" id="tag_@tag.TagId" />
                     <label for="tag_@tag.TagId" class="form-check-label">@tag.TagName</label>
                 </div>
             }
         </div>
     </div>
+
     <div class="mb-3">
         <label for="NewsArticle_NewsStatus" class="form-label">Status</label>
         <select id="NewsArticle_NewsStatus" asp-for="NewsArticle.NewsStatus" class="form-select">
@@ -66,6 +58,6 @@
         </select>
         <span asp-validation-for="NewsArticle.NewsStatus" class="text-danger"></span>
     </div>
-
-    <button type="submit" class="btn btn-success w-100">Save</button>
+ 
+    <button type="submit" class="btn btn-primary w-100">Save</button>
 </form>

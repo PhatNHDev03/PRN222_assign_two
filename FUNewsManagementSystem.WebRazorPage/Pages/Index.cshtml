@@ -11,7 +11,7 @@
     <div class="d-flex justify-content-center gap-2">
         @if (User.IsInRole("Staff"))
         {
-            <a asp-page="/NewsArticle/Index" class="btn btn-primary">News Management</a>
+            <a asp-page="/NewsArticles/Index" class="btn btn-primary">News Management</a>
             <a asp-page="/Category/Index" class="btn btn-secondary">Category Management</a>
             <a asp-page="/Tags/Index" class="btn btn-success">Tag Management</a>
             <a asp-page="/NewsArticle/MyNewArticle"class="btn btn-warning">My News</a>

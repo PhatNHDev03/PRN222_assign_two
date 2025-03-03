@@ -9,6 +9,7 @@ namespace FUNewsManagementSystem.Services.IService
 {
     public interface INewsArticleService
     {
+        List<NewsArticle> GetAllNewsArticles();
         List<NewsArticle> GetAllNewsArticlesWithDetails();
         NewsArticle GetNewsArticleById(string id);
         void AddNewsArticle(NewsArticle newsArticle);
@@ -24,6 +25,7 @@ namespace FUNewsManagementSystem.Services.IService
         DateTime? LimitEndDate();
         void disableACateGoryId(short categoryId);
         public DateTime FirstCreateDate();
+        string GetUpdaterName(short? updatedById);
 
     }
 }
