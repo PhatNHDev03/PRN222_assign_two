@@ -22,7 +22,7 @@
     <ProjectReference Include="..\FUNewsManagementSystem.BusinessObject\FUNewsManagementSystem.BusinessObject.csproj">
       <Private>True</Private>
     </ProjectReference>
-    <ProjectReference Include="..\FUNewsManagementSystem.Services\FUNewsManagementSystem.Services.csproj">
+    <ProjectReference Include="..\FUNewsManagementSystem.Services\FUNewsManagementSystem.Business.csproj">
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>

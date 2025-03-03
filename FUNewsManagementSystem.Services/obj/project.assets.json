@@ -3520,9 +3520,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.Services\\FUNewsManagementSystem.Services.csproj",
-      "projectName": "FUNewsManagementSystem.Services",
-      "projectPath": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.Services\\FUNewsManagementSystem.Services.csproj",
+      "projectUniqueName": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.Services\\FUNewsManagementSystem.Business.csproj",
+      "projectName": "FUNewsManagementSystem.Business",
+      "projectPath": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.Services\\FUNewsManagementSystem.Business.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
       "outputPath": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.Services\\obj\\",
       "projectStyle": "PackageReference",

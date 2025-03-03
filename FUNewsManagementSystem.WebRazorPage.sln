@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FUNewsManagementSystem.Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FUNewsManagementSystem.BusinessObject", "FUNewsManagementSystem.BusinessObject\FUNewsManagementSystem.BusinessObject.csproj", "{825EDE2B-4346-4151-939E-BD75C4D26221}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FUNewsManagementSystem.Services", "FUNewsManagementSystem.Services\FUNewsManagementSystem.Services.csproj", "{11365265-1E91-4BAF-8D96-D984DB935289}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FUNewsManagementSystem.Business", "FUNewsManagementSystem.Services\FUNewsManagementSystem.Business.csproj", "{11365265-1E91-4BAF-8D96-D984DB935289}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

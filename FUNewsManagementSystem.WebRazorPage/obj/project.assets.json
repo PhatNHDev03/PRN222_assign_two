@@ -2971,6 +2971,22 @@
           }
         }
       },
+      "FUNewsManagementSystem.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "FUNewsManagementSystem.BusinessObject": "1.0.0",
+          "FUNewsManagementSystem.DataAccess": "1.0.0",
+          "Microsoft.AspNetCore.SignalR.Core": "1.2.0",
+          "Microsoft.EntityFrameworkCore": "9.0.2"
+        },
+        "compile": {
+          "bin/placeholder/FUNewsManagementSystem.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FUNewsManagementSystem.Business.dll": {}
+        }
+      },
       "FUNewsManagementSystem.BusinessObject/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -3000,22 +3016,6 @@
         },
         "runtime": {
           "bin/placeholder/FUNewsManagementSystem.DataAccess.dll": {}
-        }
-      },
-      "FUNewsManagementSystem.Services/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "FUNewsManagementSystem.BusinessObject": "1.0.0",
-          "FUNewsManagementSystem.DataAccess": "1.0.0",
-          "Microsoft.AspNetCore.SignalR.Core": "1.2.0",
-          "Microsoft.EntityFrameworkCore": "9.0.2"
-        },
-        "compile": {
-          "bin/placeholder/FUNewsManagementSystem.Services.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/FUNewsManagementSystem.Services.dll": {}
         }
       }
     }
@@ -8203,6 +8203,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "FUNewsManagementSystem.Business/1.0.0": {
+      "type": "project",
+      "path": "../FUNewsManagementSystem.Services/FUNewsManagementSystem.Business.csproj",
+      "msbuildProject": "../FUNewsManagementSystem.Services/FUNewsManagementSystem.Business.csproj"
+    },
     "FUNewsManagementSystem.BusinessObject/1.0.0": {
       "type": "project",
       "path": "../FUNewsManagementSystem.BusinessObject/FUNewsManagementSystem.BusinessObject.csproj",
@@ -8212,17 +8217,12 @@
       "type": "project",
       "path": "../FUNewsManagementSystem.DataAccess/FUNewsManagementSystem.DataAccess.csproj",
       "msbuildProject": "../FUNewsManagementSystem.DataAccess/FUNewsManagementSystem.DataAccess.csproj"
-    },
-    "FUNewsManagementSystem.Services/1.0.0": {
-      "type": "project",
-      "path": "../FUNewsManagementSystem.Services/FUNewsManagementSystem.Services.csproj",
-      "msbuildProject": "../FUNewsManagementSystem.Services/FUNewsManagementSystem.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "FUNewsManagementSystem.Business >= 1.0.0",
       "FUNewsManagementSystem.BusinessObject >= 1.0.0",
-      "FUNewsManagementSystem.Services >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 9.0.2",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.2",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.11",
@@ -8263,8 +8263,8 @@
             "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.BusinessObject\\FUNewsManagementSystem.BusinessObject.csproj": {
               "projectPath": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.BusinessObject\\FUNewsManagementSystem.BusinessObject.csproj"
             },
-            "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.Services\\FUNewsManagementSystem.Services.csproj": {
-              "projectPath": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.Services\\FUNewsManagementSystem.Services.csproj"
+            "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.Services\\FUNewsManagementSystem.Business.csproj": {
+              "projectPath": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.Services\\FUNewsManagementSystem.Business.csproj"
             }
           }
         }
