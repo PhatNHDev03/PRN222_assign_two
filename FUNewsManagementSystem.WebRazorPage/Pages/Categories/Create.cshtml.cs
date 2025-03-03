@@ -2,6 +2,7 @@ using FUNewsManagementSystem.BusinessObject;
 using FUNewsManagementSystem.Services.IService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FUNewsManagementSystem.WebRazorPage.Pages.Categories
 {
@@ -17,12 +18,20 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Categories
         [BindProperty]
         public Category Category { get; set; }
 
+        // Thêm thu?c tính cho danh sách parent categories
+        public SelectList ParentCategories { get; set; }
+
         public IActionResult OnGet()
         {
             Category = new Category
             {
                 IsActive = true // M?c ??nh IsActive là true khi t?o m?i
             };
+
+            // L?y danh sách các danh m?c ?? hi?n th? trong dropdown
+            var categories = _categoryService.GetAllCategories();
+            ParentCategories = new SelectList(categories, "CategoryId", "CategoryName");
+
             return Page();
         }
 

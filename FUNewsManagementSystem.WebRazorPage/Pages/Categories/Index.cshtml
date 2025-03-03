@@ -1,27 +1,89 @@
 ﻿@page
 @model FUNewsManagementSystem.WebRazorPage.Pages.Categories.IndexModel
 @{
-    ViewData["Title"] = "Categories";
+    ViewData["Title"] = "Category List";
 }
 
-<h1>Categories</h1>
+<style>
+    body {
+        background-color: #ffffff; /* Nền trắng cho trang tổng thể */
+    }
 
-<!-- Nút tạo mới mở popup -->
+    h1 {
+        color: #000000; /* Chữ đen cho tiêu đề */
+        margin-bottom: 20px;
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Màu xanh dương nhạt cho nút Create New */
+        border-color: #007bff;
+        color: #ffffff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Màu xanh đậm hơn khi hover */
+            border-color: #0056b3;
+        }
+
+    table.table-bordered.table-striped {
+        border: 1px solid #000000; /* Viền đen cho bảng */
+    }
+
+        table.table-bordered.table-striped thead {
+            background-color: #000000; /* Nền đen cho tiêu đề cột */
+            color: #ffffff; /* Chữ trắng cho tiêu đề cột */
+        }
+
+        table.table-bordered.table-striped tbody tr {
+            background-color: #ffffff; /* Nền trắng cho nội dung hàng */
+            border-bottom: 1px solid #000000; /* Viền đen dưới mỗi hàng */
+        }
+
+        table.table-bordered.table-striped td, table.table-bordered.table-striped th {
+            border: 1px solid #000000; /* Viền đen cho các ô */
+        }
+
+    .btn-warning.btn-sm {
+        background-color: #ffc107; /* Màu vàng cho nút Edit */
+        border-color: #ffc107;
+        color: #000000; /* Chữ đen trên nút vàng */
+    }
+
+        .btn-warning.btn-sm:hover {
+            background-color: #e0a800; /* Màu vàng đậm hơn khi hover */
+            border-color: #e0a800;
+        }
+
+    .btn-danger.btn-sm {
+        background-color: #dc3545; /* Màu đỏ cho nút Delete */
+        border-color: #dc3545;
+        color: #ffffff; /* Chữ trắng trên nút đỏ */
+    }
+
+        .btn-danger.btn-sm:hover {
+            background-color: #c82333; /* Màu đỏ đậm hơn khi hover */
+            border-color: #c82333;
+        }
+</style>
+
+<h1>Category List</h1>
+
+<!-- Nút tạo mới mở popup, giữ nguyên chức năng -->
 <p>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
         Create New
     </button>
 </p>
 
-<!-- Bảng hiển thị danh sách category -->
-<table class="table table-striped">
+<!-- Bảng hiển thị danh sách category, giữ nguyên logic dữ liệu -->
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Category ID</th>
             <th>Category Name</th>
             <th>Description</th>
             <th>Parent Category ID</th>
-            <th>Is Active</th>
+            <th>Status</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -32,8 +94,8 @@
                 <td>@category.CategoryId</td>
                 <td>@category.CategoryName</td>
                 <td>@category.CategoryDesciption</td>
-                <td>@(category.ParentCategory?.CategoryId.ToString() ?? "N/A")</td>
-                <td>@(category.IsActive == true ? "True" : "False")</td>
+                <td>@(category.ParentCategory?.CategoryName.ToString() ?? "N/A")</td>
+                <td>@(category.IsActive == true ? "Active" : "Inactive")</td>
                 <td>
                     <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal" onclick="loadEditForm('@category.CategoryId')">
                         Edit
@@ -47,7 +109,7 @@
     </tbody>
 </table>
 
-<!-- Modal cho Edit -->
+<!-- Modal cho Edit, giữ nguyên chức năng -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -66,7 +128,7 @@
     </div>
 </div>
 
-<!-- Modal cho Create -->
+<!-- Modal cho Create, giữ nguyên chức năng -->
 <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -85,7 +147,7 @@
     </div>
 </div>
 
-<!-- Modal cho Delete -->
+<!-- Modal cho Delete, giữ nguyên chức năng -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -112,7 +174,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Load form edit
+        // Load form edit, giữ nguyên chức năng
         function loadEditForm(categoryId) {
             fetch(`/Categories/Edit?id=${categoryId}`)
                 .then(response => response.text())
@@ -122,7 +184,7 @@
                 .catch(error => console.error('Error loading edit form:', error));
         }
 
-        // Load form create khi nhấn nút "Create New"
+        // Load form create khi nhấn nút "Create New", giữ nguyên chức năng
         window.onload = function() {
             document.querySelector('[data-bs-target="#createModal"]').addEventListener('click', function() {
                 fetch(`/Categories/Create`)
@@ -134,7 +196,7 @@
             });
         };
 
-        // Xử lý submit form create
+        // Xử lý submit form create, giữ nguyên chức năng
         document.addEventListener('DOMContentLoaded', function() {
             $(document).on('click', '#saveCreateButton', function(event) {
                 event.preventDefault();
@@ -160,7 +222,7 @@
                 });
             });
 
-            // Xử lý submit form edit
+            // Xử lý submit form edit, giữ nguyên chức năng
             $(document).on('click', '#saveEditButton', function(event) {
                 event.preventDefault();
                 var form = $('#editModalBody').find('#editForm');
@@ -185,7 +247,7 @@
                 });
             });
 
-            // Load form delete khi nhấn nút "Delete"
+            // Load form delete khi nhấn nút "Delete", giữ nguyên chức năng
             window.loadDeleteForm = function(categoryId) {
                 fetch(`/Categories/Delete?id=${categoryId}`)
                     .then(response => response.text())
@@ -196,7 +258,7 @@
                     .catch(error => console.error('Error loading delete form:', error));
             };
 
-            // Xử lý submit form delete
+            // Xử lý submit form delete, giữ nguyên chức năng
             $(document).on('click', '#confirmDeleteButton', function() {
                 var form = $('#deleteModalBody').find('#deleteForm');
                 var formData = form.serialize();
@@ -222,4 +284,18 @@
             });
         });
     </script>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
 }

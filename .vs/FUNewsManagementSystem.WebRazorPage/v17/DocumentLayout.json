@@ -86,7 +86,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 353,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -117,6 +117,14 @@
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Delete.cshtml.cs",
@@ -124,7 +132,7 @@
               "RelativeDocumentMoniker": "FUNewsManagementSystem.WebRazorPage\\Pages\\Categories\\Delete.cshtml.cs",
               "ToolTip": "D:\\FPT_source\\sem 7\\PRN222\\Assignments\\FUNewsManagementSystem.WebRazorPage\\FUNewsManagementSystem.WebRazorPage\\Pages\\Categories\\Delete.cshtml.cs",
               "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\Pages\\Categories\\Delete.cshtml.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAAAywEkAAAAvAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAoAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-01T17:02:40.119Z",
               "EditorCaption": ""
@@ -235,8 +243,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\Pages\\Categories\\Index.cshtml",
               "ViewState": "AQIAABsAAAAAAAAAAAAAAB4AAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-01T16:43:39.386Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-01T16:43:39.386Z"
             },
             {
               "$type": "Document",

@@ -18,7 +18,7 @@ namespace FUNewsManagementSystem.WebRazorPage.Pages.Categories
         public void OnGet()
         {
             Categories = _categoryService.GetAllCategories()
-                .OrderBy(c => c.CategoryId) 
+               
                 .ToList();
         }
     }
