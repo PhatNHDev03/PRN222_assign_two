@@ -4,35 +4,34 @@
     Layout = null;
 }
 
-<form method="post" id="createForm" asp-page="Create">
-    <!-- Không cần input cho NewsArticleID -->
-    <div>
-        <label for="NewsArticleViewModel_NewsTitle">Title</label>
-        <input id="NewsArticleViewModel_NewsTitle" asp-for="NewsArticleViewModel.NewsTitle" required />
+<form method="post" id="createForm" asp-page="Create" class="p-3">
+    <div class="mb-3">
+        <label for="NewsArticleViewModel_NewsTitle" class="form-label">Title</label>
+        <input id="NewsArticleViewModel_NewsTitle" asp-for="NewsArticleViewModel.NewsTitle" class="form-control" required />
         <span asp-validation-for="NewsArticleViewModel.NewsTitle" class="text-danger"></span>
     </div>
 
-    <div>
-        <label for="NewsArticleViewModel_Headline">Headline</label>
-        <input id="NewsArticleViewModel_Headline" asp-for="NewsArticleViewModel.Headline" required />
+    <div class="mb-3">
+        <label for="NewsArticleViewModel_Headline" class="form-label">Headline</label>
+        <input id="NewsArticleViewModel_Headline" asp-for="NewsArticleViewModel.Headline" class="form-control" required />
         <span asp-validation-for="NewsArticleViewModel.Headline" class="text-danger"></span>
     </div>
 
-    <div>
-        <label for="NewsArticleViewModel_NewsContent">Content</label>
-        <textarea id="NewsArticleViewModel_NewsContent" asp-for="NewsArticleViewModel.NewsContent"></textarea>
+    <div class="mb-3">
+        <label for="NewsArticleViewModel_NewsContent" class="form-label">Content</label>
+        <textarea id="NewsArticleViewModel_NewsContent" asp-for="NewsArticleViewModel.NewsContent" class="form-control"></textarea>
         <span asp-validation-for="NewsArticleViewModel.NewsContent" class="text-danger"></span>
     </div>
 
-    <div>
-        <label for="NewsArticleViewModel_NewsSource">News Source</label>
-        <input id="NewsArticleViewModel_NewsSource" asp-for="NewsArticleViewModel.NewsSource" />
+    <div class="mb-3">
+        <label for="NewsArticleViewModel_NewsSource" class="form-label">News Source</label>
+        <input id="NewsArticleViewModel_NewsSource" asp-for="NewsArticleViewModel.NewsSource" class="form-control" />
         <span asp-validation-for="NewsArticleViewModel.NewsSource" class="text-danger"></span>
     </div>
 
-    <div>
-        <label for="NewsArticleViewModel_CategoryID">Category</label>
-        <select id="NewsArticleViewModel_CategoryID" asp-for="NewsArticleViewModel.CategoryID">
+    <div class="mb-3">
+        <label for="NewsArticleViewModel_CategoryID" class="form-label">Category</label>
+        <select id="NewsArticleViewModel_CategoryID" asp-for="NewsArticleViewModel.CategoryID" class="form-select">
             @foreach (var category in Model.Categories)
             {
                 <option value="@category.CategoryId">@category.CategoryName</option>
@@ -41,25 +40,24 @@
         <span asp-validation-for="NewsArticleViewModel.CategoryID" class="text-danger"></span>
     </div>
 
-    <div>
-        <label>Tags</label>
-        <div>
+    <div class="mb-3">
+        <label class="form-label">Tags</label>
+        <div class="form-check">
             @foreach (var tag in Model.Tags)
             {
-                <div>
-                    <input type="checkbox" name="NewsArticleViewModel.SelectedTags"
-                           value="@tag.TagId"
-                           id="tag_@tag.TagId" />
-                    <label for="tag_@tag.TagId">@tag.TagName</label>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" name="NewsArticleViewModel.SelectedTags"
+                           value="@tag.TagId" id="tag_@tag.TagId" />
+                    <label for="tag_@tag.TagId" class="form-check-label">@tag.TagName</label>
                 </div>
             }
         </div>
     </div>
 
-    <div>
-        <label for="NewsArticleViewModel_NewsStatus">Status</label>
-        <input type="checkbox" id="NewsArticleViewModel_NewsStatus" asp-for="NewsArticleViewModel.NewsStatus" />
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="NewsArticleViewModel_NewsStatus" asp-for="NewsArticleViewModel.NewsStatus" />
+        <label class="form-check-label" for="NewsArticleViewModel_NewsStatus">Active</label>
     </div>
 
-    <button type="submit">Save</button>
+    <button type="submit" class="btn btn-primary w-100">Save</button>
 </form>

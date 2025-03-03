@@ -4,36 +4,36 @@
     Layout = null;
 }
 
-<form method="post" id="editForm" asp-page="Edit">
+<form method="post" id="editForm" asp-page="Edit" class="p-4 bg-light rounded shadow-sm">
     <input type="hidden" asp-for="NewsArticle.NewsArticleID" />
 
     <div class="mb-3">
-        <label asp-for="NewsArticle.NewsTitle" class="form-label">Title</label>
+        <label asp-for="NewsArticle.NewsTitle" class="form-label fw-bold">Title</label>
         <input asp-for="NewsArticle.NewsTitle" class="form-control" required />
         <span asp-validation-for="NewsArticle.NewsTitle" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
-        <label asp-for="NewsArticle.Headline" class="form-label">Headline</label>
+        <label asp-for="NewsArticle.Headline" class="form-label fw-bold">Headline</label>
         <input asp-for="NewsArticle.Headline" class="form-control" required />
         <span asp-validation-for="NewsArticle.Headline" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
-        <label asp-for="NewsArticle.NewsContent" class="form-label">Content</label>
-        <textarea asp-for="NewsArticle.NewsContent" class="form-control"></textarea>
+        <label asp-for="NewsArticle.NewsContent" class="form-label fw-bold">Content</label>
+        <textarea asp-for="NewsArticle.NewsContent" class="form-control" rows="5"></textarea>
         <span asp-validation-for="NewsArticle.NewsContent" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
-        <label asp-for="NewsArticle.NewsSource" class="form-label">News Source</label>
+        <label asp-for="NewsArticle.NewsSource" class="form-label fw-bold">News Source</label>
         <input asp-for="NewsArticle.NewsSource" class="form-control" />
         <span asp-validation-for="NewsArticle.NewsSource" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
-        <label asp-for="NewsArticle.CategoryID" class="form-label">Category</label>
-        <select asp-for="NewsArticle.CategoryID" class="form-control">
+        <label asp-for="NewsArticle.CategoryID" class="form-label fw-bold">Category</label>
+        <select asp-for="NewsArticle.CategoryID" class="form-select">
             @foreach (var category in Model.Categories)
             {
                 <option value="@category.CategoryId">@category.CategoryName</option>
@@ -43,8 +43,8 @@
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Tags</label>
-        <div>
+        <label class="form-label fw-bold">Tags</label>
+        <div class="border p-2 rounded">
             @foreach (var tag in Model.Tags)
             {
                 <div class="form-check form-check-inline">
@@ -59,10 +59,10 @@
         </div>
     </div>
 
-    <div class="mb-3">
-        <label asp-for="NewsArticle.NewsStatus" class="form-label">Status</label>
-        <input asp-for="NewsArticle.NewsStatus" type="checkbox" class="form-check-input" />
+    <div class="mb-3 form-check">
+        <input asp-for="NewsArticle.NewsStatus" type="checkbox" class="form-check-input" id="statusCheck" />
+        <label class="form-check-label fw-bold" for="statusCheck">Active</label>
     </div>
 
-    <button type="submit" class="btn btn-success"> Save</button>
+    <button type="submit" class="btn btn-success w-100">Save</button>
 </form>

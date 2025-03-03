@@ -106,7 +106,7 @@
                 <td>@article.NewsArticleId</td>
                 <td>@article.NewsTitle</td>
                 <td>@article.Headline</td>
-                <td>@(article.NewsContent?.Length > 50 ? article.NewsContent.Substring(0, 50) + "..." : article.NewsContent)</td>
+                <td class="content-column">@article.NewsContent</td>
                 <td>@article.NewsSource</td>
                 <td>@article.CreatedDate?.ToString("yyyy-MM-dd")</td>
                 <td>@(article.Category?.CategoryName ?? "N/A")</td>
@@ -215,11 +215,16 @@
 
         // Load form create khi nhấn nút "Add New Article", giữ nguyên chức năng
         window.onload = function() {
-            document.querySelector('[data-bs-target="#createModal"]').addEventListener('click', function() {
+            document.querySelector('[data-bs-target="#createModal"]').addEventListener('click', function () {
                 fetch(`/NewsArticles/Create`)
                     .then(response => response.text())
                     .then(data => {
                         document.getElementById('createModalBody').innerHTML = data;
+                        // Load lại Bootstrap CSS nếu cần
+                        var modalBody = document.getElementById('createModalBody');
+                        modalBody.querySelectorAll('.form-control, .form-select, .form-check-input').forEach(el => {
+                            el.classList.add('form-control');
+                        });
                     })
                     .catch(error => console.error('Error loading create form:', error));
             });
@@ -288,3 +293,20 @@
         });
     </script>
 }
+<style>
+    .content-column {
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+        .content-column:hover {
+            white-space: normal;
+            overflow: visible;
+            background: rgba(0, 0, 0, 0.05);
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+</style>
