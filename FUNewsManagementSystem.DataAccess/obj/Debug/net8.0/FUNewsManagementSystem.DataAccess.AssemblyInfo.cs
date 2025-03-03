@@ -14,7 +14,13 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FUNewsManagementSystem.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8f1636188a8434e3c5ab74715f63b71ffefdc2e")]
+||||||| 0d0dc4b
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c704f499971012b80de0c086b691cfb03f98c53e")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac67953aa96ec5383014f19fa1c73aaca8645c69")]
+>>>>>>> duc_cate
 [assembly: System.Reflection.AssemblyProductAttribute("FUNewsManagementSystem.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FUNewsManagementSystem.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

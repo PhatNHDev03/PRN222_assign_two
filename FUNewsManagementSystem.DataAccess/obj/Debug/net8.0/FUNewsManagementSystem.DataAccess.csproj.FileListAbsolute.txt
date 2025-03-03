@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\bin\Debug\net8.0\FUNewsManagementSystem.DataAccess.deps.json
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\bin\Debug\net8.0\FUNewsManagementSystem.DataAccess.runtimeconfig.json
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\bin\Debug\net8.0\FUNewsManagementSystem.DataAccess.dll
@@ -16,3 +17,42 @@ D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNew
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.pdb
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.genruntimeconfig.cache
 D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\ref\FUNewsManagementSystem.DataAccess.dll
+||||||| 0d0dc4b
+=======
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\bin\Debug\net8.0\FUNewsManagementSystem.DataAccess.deps.json
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\bin\Debug\net8.0\FUNewsManagementSystem.DataAccess.runtimeconfig.json
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\bin\Debug\net8.0\FUNewsManagementSystem.DataAccess.dll
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\bin\Debug\net8.0\FUNewsManagementSystem.DataAccess.pdb
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\bin\Debug\net8.0\FUNewsManagementSystem.BusinessObject.dll
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\bin\Debug\net8.0\FUNewsManagementSystem.BusinessObject.pdb
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.csproj.AssemblyReference.cache
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.AssemblyInfoInputs.cache
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.AssemblyInfo.cs
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.csproj.CoreCompileInputs.cache
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.sourcelink.json
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsMa.4105EF26.Up2Date
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.dll
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\refint\FUNewsManagementSystem.DataAccess.dll
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.pdb
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.genruntimeconfig.cache
+D:\code\ass2\PRN222_assign_two\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\ref\FUNewsManagementSystem.DataAccess.dll
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\bin\Debug\net8.0\FUNewsManagementSystem.DataAccess.deps.json
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\bin\Debug\net8.0\FUNewsManagementSystem.DataAccess.runtimeconfig.json
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\bin\Debug\net8.0\FUNewsManagementSystem.DataAccess.dll
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\bin\Debug\net8.0\FUNewsManagementSystem.DataAccess.pdb
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\bin\Debug\net8.0\FUNewsManagementSystem.BusinessObject.dll
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\bin\Debug\net8.0\FUNewsManagementSystem.BusinessObject.pdb
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.csproj.AssemblyReference.cache
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.AssemblyInfoInputs.cache
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.AssemblyInfo.cs
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.csproj.CoreCompileInputs.cache
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.sourcelink.json
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsMa.4105EF26.Up2Date
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.dll
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\refint\FUNewsManagementSystem.DataAccess.dll
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.pdb
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\FUNewsManagementSystem.DataAccess.genruntimeconfig.cache
+D:\FPT_source\sem 7\PRN222\Assignments\FUNewsManagementSystem.WebRazorPage\FUNewsManagementSystem.DataAccess\obj\Debug\net8.0\ref\FUNewsManagementSystem.DataAccess.dll
+>>>>>>> duc_cate
