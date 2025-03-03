@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 353,
-          "SelectedChildIndex": 15,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -97,10 +97,6 @@
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Tagrepository.cs",
@@ -110,8 +106,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.DataAccess\\Tagrepository.cs",
               "ViewState": "AQIAAEAAAAAAAAAAAAAUwE8AAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-01T06:43:19.098Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-01T06:43:19.098Z"
             },
             {
               "$type": "Document",
@@ -123,8 +118,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.BusinessObject\\Pagination\\Pager.cs",
               "ViewState": "AQIAACEAAAAAAAAAAAAuwDMAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-01T06:42:09.545Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-01T06:42:09.545Z"
             },
             {
               "$type": "Document",
@@ -136,8 +130,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\Pages\\Tags\\Create.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-01T04:11:46.772Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-01T04:11:46.772Z"
             },
             {
               "$type": "Document",
@@ -149,8 +142,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\Pages\\Tags\\Edit.cshtml",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAAkAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-01T04:08:43.236Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-01T04:08:43.236Z"
             },
             {
               "$type": "Document",
@@ -162,8 +154,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-01T04:01:31.319Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-01T04:01:31.319Z"
             },
             {
               "$type": "Document",
@@ -175,8 +166,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.Services\\DependencyInjection.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAACoAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-01T04:01:23.693Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-01T04:01:23.693Z"
             },
             {
               "$type": "Document",
@@ -201,8 +191,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\Pages\\Tags\\Index.cshtml",
               "ViewState": "AQIAABgAAAAAAAAAAAAAACUAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-01T03:52:10.766Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-01T03:52:10.766Z"
             },
             {
               "$type": "Document",
@@ -214,8 +203,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.Services\\SignalrServer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-01T01:16:24.207Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-01T01:16:24.207Z"
             },
             {
               "$type": "Document",
@@ -227,8 +215,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\Pages\\Tags\\Delete.cshtml.cs",
               "ViewState": "AQIAABAAAAAAAAAAAIBBwCQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T10:18:22.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-28T10:18:22.405Z"
             },
             {
               "$type": "Document",
@@ -240,8 +227,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\Pages\\Tags\\Edit.cshtml.cs",
               "ViewState": "AQIAABMAAAAAAAAAAAAUwCIAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T10:16:20.609Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-28T10:16:20.609Z"
             },
             {
               "$type": "Document",
@@ -253,8 +239,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\Pages\\Tags\\Create.cshtml.cs",
               "ViewState": "AQIAAB0AAAAAAAAAAAAuwB0AAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T10:05:54.404Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-28T10:05:54.404Z"
             },
             {
               "$type": "Document",
@@ -266,8 +251,7 @@
               "RelativeToolTip": "FUNewsManagementSystem.WebRazorPage\\wwwroot\\js\\site.js",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-02-28T09:47:52.816Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-28T09:47:52.816Z"
             }
           ]
         },
