@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/fe8d1f80-504c-46b2-bbdd-9affcc7e13c9)# News Articles Management System
+
 
 ## Overview
 
@@ -61,7 +61,7 @@ This project follows the **Three-Layer Architecture** pattern:
 - Click **"Delete"** to remove an article.
 - Articles are listed in a table with category, tags, and author details.
 ## Architecture
-![image](https://github.com/user-attachments/assets/a3b62f0b-8f98-4c57-b7be-f0f3e29795bf)
+![image](https://github.com/user-attachments/assets/fe8d1f80-504c-46b2-bbdd-9affcc7e13c9)# News Articles Management System
 
 
 
